@@ -30,8 +30,3 @@ Scenario: Check for null values
 Scenario: Row counts match control file
    Given  a file
     Then  empty rows
-
-@all
-Scenario:SQL and python comparison
-  Given a file
-  Then  query result matched with partner file result
