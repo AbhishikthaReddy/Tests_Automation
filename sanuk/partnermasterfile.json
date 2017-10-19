@@ -14,71 +14,77 @@
       "filename": "kab_portfolio",
       "filedeffile": "definition_data/PortfolioFileDefinition.json"
     },
-    "file3":
+
+    "file3": {
+      "filename": "dfsample",
+      "filedeffile": "definition_data/DFSampleFileD.json"
+    }  ,
+    "file4":
     {
       "filename": "kab_portfolio_projection",
       "filedeffile": "definition_data/PortfolioProjectionFileDefinition.json"
     },
-    "file4":
+    "file5":
     {
       "filename": "kab_evaluation",
       "filedeffile": "definition_data/EvaluationFileDefinition.json"
     },
-    "file5":
+    "file6":
     {
       "filename": "kab_complaints",
       "filedeffile": "definition_data/ComplaintsFileDefinition.json"
     },
-    "file6":
+    "file7":
     {
       "filename": "kab_evaluation_score",
       "filedeffile": "definition_data/EvaluationScoreFileDefinition.json"
     },
-    "file7":
+    "file8":
     {
       "filename": "kab_experian_bank_verification",
       "filedeffile": "definition_data/ExperianBankVerificationFileDefinition.json"
     },
-    "file8":
+    "file9":
     {
       "filename": "kab_account_consent",
       "filedeffile": "definition_data/AccountConsentFileDefinition.json"
     },
-    "file9":
+    "file10":
     {
       "filename": "kab_account_event",
       "filedeffile": "definition_data/AccountEventFileDefinition.json"
     },
-    "file10":
+    "file11":
     {
       "filename": "kab_account_fee_suspension",
       "filedeffile": "definition_data/AccountFeeSuspensionFileDefinition.json"
     },
-    "file11":
+    "file12":
     {
       "filename": "kab_account_promisetopay",
       "filedeffile": "definition_data/AccountPromiseToPayFileDefinition.json"
     },
-    "file12":
+    "file13":
     {
       "filename": "kab_external_sources",
       "filedeffile": "definition_data/ExternalSourcesFileDefinition.json"
     },
-    "file13":
+    "file14":
     {
       "filename": "kab_account_address",
       "filedeffile": "definition_data/AccountAddressFileDefinition.json"
     },
-    "file14":
+    "file15":
     {
       "filename": "kab_account_phone",
       "filedeffile": "definition_data/AccountPhoneFileDefinition.json"
     },
-    "file15":
+    "file16":
     {
-      "filename": "sample",
-      "filedeffile": "definition_data/SampleTestFileDefinition.json"
+      "filename": "test2",
+      "filedeffile": "definition_data/Test2FileDefinition.json"
     }
+
   }
 }
 

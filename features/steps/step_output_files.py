@@ -23,8 +23,8 @@ def step_given_the_file(context):
 					dir_file = dir_create()
 					values = dir_file.dir(resultsfiles_loc)
 					final_lines_to_file = context.transformation.scenario_writing_to_files(resultsfiles_loc, datafiles_names,deffiles_names, control_def_file_loc, date, timestamp)
-					file_comp = f_comp()
-					comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names)
+					#file_comp = f_comp()
+					#comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names)
 
 					@then('column names should match')
 					def step_column_names_should_match(context):
@@ -43,6 +43,10 @@ def step_given_the_file(context):
 						pass
 
 					@then('data type check')
+					def step_data_type_check(context):
+						pass
+
+					@then('duplicate values')
 					def step_data_type_check(context):
 						pass
 
@@ -51,23 +55,27 @@ def step_given_the_file(context):
 
 					@then('column names should match')
 					def step_column_names_should_match(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('column order should match')
 					def step_column_order_should_match(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('check null values')
 					def step_check_null_values(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('empty rows')
 					def step_empty_rows(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('data type check')
 					def step_data_type_check(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
+
+					@then('duplicate values')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
 
 			except TypeError as err:
 				print ("Error Message: "+str(err))

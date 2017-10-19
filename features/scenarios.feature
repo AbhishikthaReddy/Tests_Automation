@@ -21,3 +21,7 @@ Scenario: check for empty rows
 @all
 Scenario: data type check for columns in a file
     Then  data type check
+
+@all
+Scenario: duplicate values check for rows in a file
+    Then  duplicate values
