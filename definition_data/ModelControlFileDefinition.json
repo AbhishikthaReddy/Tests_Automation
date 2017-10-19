@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of model files sent"
+      "description": "Number of model files sent",
+      "data-format":""
     }
   }
 }

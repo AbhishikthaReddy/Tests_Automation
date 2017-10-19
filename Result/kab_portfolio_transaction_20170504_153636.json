@@ -1,18 +1,18 @@
 {
     "Test-1": {
+        "Test name": "Column names",
+        "Result": "Passed"
+    },
+    "Test-2": {
+        "Test name": "Column order",
+        "Result": "Passed"
+    },
+    "Test-3": {
         "Test name": "Check for nulls",
         "Result": "Failed/Nulls are found",
         "Null values found in": [
             "ReversalTransactionID: [1, 2, 3, 4, 5]"
         ]
-    },
-    "Test-2": {
-        "Test name": "Column names",
-        "Result": "Passed"
-    },
-    "Test-3": {
-        "Test name": "Column order",
-        "Result": "Passed"
     },
     "Test-4": {
         "Test name": "Empty Rows",
@@ -58,5 +58,9 @@
             "the value 0 at row 83 in column InterestAmountAppliedToLoan doesn't match with datatype DECIMAL(18,2)",
             "the value 0 at row 84 in column InterestAmountAppliedToLoan doesn't match with datatype DECIMAL(18,2)"
         ]
+    },
+    "Test-6": {
+        "Test name": "Data Formats",
+        "Result": "Passed"
     }
 }

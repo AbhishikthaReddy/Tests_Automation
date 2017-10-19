@@ -9,7 +9,7 @@
   "encrypted": "Yes",
   "fullorincremental": "Full",
   "description": "",
-  "column_names": "['user','username','pwd']",
+  "column_names": "['user','username','pwd','ssn']",
   "columns": {
     "user": {
       "order": "1",
@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": ""
+      "description": "",
+      "data-format":""
     },
     "username": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": ""
+      "description": "",
+      "data-format":""
     },
     "pwd": {
       "order": "3",
@@ -42,7 +44,20 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": ""
+      "description": "",
+      "data-format":""
+    },
+    "ssn": {
+      "order": "4",
+      "dbtype": "VARCHAR(50)",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Date of loan origination",
+      "data-format":"^(?!219-09-9999|078-05-1120)(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$"
     }
 }
 }

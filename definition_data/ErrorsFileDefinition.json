@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "ErrorDate": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of the error"
+      "description": "Date of the error",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
     "ErrorTime": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time of error"
+      "description": "Time of error",
+      "data-format":""
     },
     "ErrorID": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of error"
+      "description": "Identifier of error",
+      "data-format":""
     },
 	 "ProcessID": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of process that generated the error"
+      "description": "Identifier of process that generated the error",
+      "data-format":""
     },
     "ErrorTypeID": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of type of error generated"
+      "description": "Identifier of type of error generated",
+      "data-format":""
     },
     "Comment": {
       "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Additional information on error"
+      "description": "Additional information on error",
+      "data-format":""
     },
     "ExternalSourceID": {
       "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "If error relates to external source, Kabbage identifier of source"
+      "description": "If error relates to external source, Kabbage identifier of source",
+      "data-format":""
     },
 	 "ClosedBy": {
       "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "User that closed the application exception or user flag"
+      "description": "User that closed the application exception or user flag",
+      "data-format":""
     }
   }
 }

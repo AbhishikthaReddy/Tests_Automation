@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "LoanID": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage loan identifier "
+      "description": "Kabbage loan identifier ",
+      "data-format":""
     },
     "PostedTransactionID": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage transaction identifier"
+      "description": "Kabbage transaction identifier",
+      "data-format":""
     },
     "ReversalTransactionID": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Kabbage transaction identifier that reversed the original transaction"
+      "description": "Kabbage transaction identifier that reversed the original transaction",
+      "data-format":""
     },
 	 "TransactionReversalFlag": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes the transaction row was reversed"
+      "description": "Denotes the transaction row was reversed",
+      "data-format":""
     },
     "AmountAppliedToLoan": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Full amount applied for the given loan"
+      "description": "Full amount applied for the given loan",
+      "data-format":""
     },
     "PrincipalPaymentApplied": {
       "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of the payment allocated to principal, if applicable"
+      "description": "Amount of the payment allocated to principal, if applicable",
+      "data-format":""
     },
     "FeePaymentApplied": {
       "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of the payment allocated to fees, if applicable"
+      "description": "Amount of the payment allocated to fees, if applicable",
+      "data-format":""
     },
 	 "FeeApplied": {
       "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of the fee assessed to loan, if applicable"
+      "description": "Amount of the fee assessed to loan, if applicable",
+      "data-format":""
     },
     "PaymentApplied": {
       "order": "10",
@@ -119,7 +128,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of the payment applied to the loan, if applicable"
+      "description": "Amount of the payment applied to the loan, if applicable",
+      "data-format":""
     },
     "AdvanceApplied": {
       "order": "11",
@@ -130,7 +140,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of the loan, if applicable"
+      "description": "Amount of the loan, if applicable",
+      "data-format":""
     },
     "PrincipalAmountAppliedToLoan": {
       "order": "12",
@@ -141,7 +152,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "",
-      "description": "Amount of transaction applied to principal, for the given loan"
+      "description": "Amount of transaction applied to principal, for the given loan",
+      "data-format":""
     },
 	 "FeeAmountAppliedToLoan": {
       "order": "13",
@@ -152,7 +164,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of transaction applied to fees, for the given loan"
+      "description": "Amount of transaction applied to fees, for the given loan",
+      "data-format":""
     },
     "NSFFeeAmountAppliedToLoan": {
       "order": "14",
@@ -163,7 +176,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of transaction applied to NSF fees, for the given loan"
+      "description": "Amount of transaction applied to NSF fees, for the given loan",
+      "data-format":""
     },
     "LateFeeAmountAppliedToLoan": {
       "order": "15",
@@ -174,7 +188,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of transaction applied to late fees, for the given loan"
+      "description": "Amount of transaction applied to late fees, for the given loan",
+      "data-format":""
     },
     "InterestAmountAppliedToLoan": {
       "order": "16",
@@ -185,7 +200,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of transaction applied to interest, for the given loan"
+      "description": "Amount of transaction applied to interest, for the given loan",
+      "data-format":""
     },
 	"TransactionAmount": {
       "order": "17",
@@ -196,7 +212,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Total amount of the transaction"
+      "description": "Total amount of the transaction",
+      "data-format":""
     },
     "TransactionCode": {
       "order": "18",
@@ -207,7 +224,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Code denoting the type of transaction applied"
+      "description": "Code denoting the type of transaction applied",
+      "data-format":""
     },
     "HexPostedTransactionID": {
       "order": "19",
@@ -218,7 +236,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Hex version of PostedTransactionID"
+      "description": "Hex version of PostedTransactionID",
+      "data-format":""
     }
   }
 }

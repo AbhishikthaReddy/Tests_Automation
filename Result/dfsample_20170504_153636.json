@@ -9,7 +9,10 @@
     },
     "Test-3": {
         "Test name": "Check for nulls",
-        "Result": "Passed"
+        "Result": "Failed/Nulls are found",
+        "Null values found in": [
+            "datee: [4]"
+        ]
     },
     "Test-4": {
         "Test name": "Empty Rows",
@@ -21,6 +24,11 @@
     },
     "Test-6": {
         "Test name": "Data Formats",
-        "Result": "Passed"
+        "Result": "Failed",
+        "Output": [
+            "Data format is invalid at column-name:ssn,row-element:330-56-98",
+            "Data format is invalid at column-name:phone,row-element:56666",
+            "Data format is invalid at column-name:datee,row-element:nan"
+        ]
     }
 }
