@@ -5,11 +5,10 @@ import pypyodbc
 import json
 from collections import OrderedDict
 
-from features.steps.connect import connection
 
 
 class scenario(object):
-    """docstring for Count"""
+
 
     def __init__(self):
         self.fn = None
@@ -202,10 +201,11 @@ class scenario(object):
             #checking data formats
 
             l2 = (json_def_data["columns"])
-            ll2=json_def_data["column_names"]
+            #ll2=json_def_data["column_names"]
             l3=json_def_data_columns_list
             pass_df_list,fail_df_list,result_df_list=[],[],[]
             list_regex=[]
+            line6={}
 
             for col in l3:
                 regex = l2[col]['data-format']
@@ -214,8 +214,6 @@ class scenario(object):
             for column in client_file_data_columns_list:
                 i=(client_file_data_columns_list.index(column))
                 for row in client_file_data[column]:
-
-                    #row=row.decode('utf8')
                     if list_regex[i] != "":
                         if row!="nan":
                             pattern = re.compile(list_regex[i],re.UNICODE)
@@ -276,5 +274,6 @@ class scenario(object):
                 out2.write('Filename')
                 for line in fail_control_file_data:
                     out2.write('\n' + line)
+
 
         return final_lines_to_file

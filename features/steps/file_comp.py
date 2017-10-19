@@ -13,37 +13,36 @@ class f_comp(object):
 		self.fn = None
 
 
-	def comp(self, date, timestamp, resultsfiles_loc):
+	def comp(self, date, timestamp, resultsfiles_loc, datafiles_names):
 
 		pass_file_list = os.listdir(resultsfiles_loc+"Pass"+"/")
 		fail_file_list = os.listdir(resultsfiles_loc+"Failed"+"/")
-		result_line, pass_dict, fail_dict = {}, {}, {}
-		for pass_file in range(0, len(pass_file_list)):
-			file_name = pass_file_list[pass_file].rsplit(date, 1)[0]
-			for file in pass_file_list:
-				if re.search(str(file_name), file):
-					pass_dict[pass_file_list[pass_file]] = file
+		result_line = {}
 
-		for fail_file in range(0, len(fail_file_list)):
-			file_name = fail_file_list[fail_file].rsplit(date, 1)[0]
-			for file in pass_file_list:
-				if re.search(str(file_name), file):
-					fail_dict[fail_file_list[fail_file]] = file
+		results_file = pd.read_csv(resultsfiles_loc+"File_comp/files_result.txt", names=['Filename', 'Result'], header=None, sep="|")
 
+		
+		for file in datafiles_names:
+			file_name = file.rsplit("/", 1)[1]
+			file_name_split = file_name.rsplit(timestamp, 1)[0]
 
-		pass_dict = { k:v for k,v in pass_dict.items() if k!=v }
-		fail_dict = { k:v for k,v in fail_dict.items() if k!=v }
-		if len(pass_dict) > 0:
-			for key, value in pass_dict.items():
-				line = filecmp.cmp(resultsfiles_loc+"Pass"+"/"+key, resultsfiles_loc+"Pass"+"/"+value)
-				if line == "False":
-					result_line[key] = ["The file is different from the Previous created file"]
+			if len(pass_file_list) > 0 or len(fail_file_list) > 0:
+				if len(pass_file_list) > 0:
+					for pass_file in pass_file_list:
+						if re.search(str(file_name_split), pass_file):
+							print("file has passed before")
+
+							if str(file_name_split) == str(pass_file):
+								print("The file ")
+				elif len(fail_file_list) > 0:
+					for fail_file in fail_file_list:
+						if re.search(str(file_name_split), pass_file):
+							print("file has FAILED before")
+
 				else:
-					result_line[key] = ["The file has no conflicts"]
-			if len(fail_dict) > 0:
-				result_line[key] = ["The file has passed before but failed now"]
-		else:
-			result_line = ["The current passed files doesn't have any other timestamp files to compare to"]
+					result_line = ["There are no passed files to make the comparison"]
+			else:
+				result_line = ["There are no files to make the comparison"]
 
 		with open(resultsfiles_loc+"SUMMARY_FILE.json", 'a') as f2:
 			json.dump(result_line, f2, indent=4)
