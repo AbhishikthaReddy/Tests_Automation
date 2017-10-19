@@ -49,6 +49,10 @@ def step_given_the_file(context):
 					def step_data_type_check(context):
 						pass
 
+
+					@then('data formats')
+					def step_data_type_check(context):
+						pass
 				else:
 					print ("There are no files with the given timestamp")
 
@@ -68,6 +72,11 @@ def step_given_the_file(context):
 					@then('empty rows')
 					def step_empty_rows(context):
 						assert context.text, "REQUIRE: corrent data input"
+
+					@then('data type check')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: corrent data input"
+
 
 					@then('data type check')
 					def step_data_type_check(context):

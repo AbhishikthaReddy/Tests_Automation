@@ -1,2 +1,0 @@
-Filename|Rowcount
-kab_portfolio_projection_20170504_153636.txt|358
