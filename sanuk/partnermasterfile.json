@@ -5,7 +5,7 @@
   "controlfile": "definition_data/ControlFileDefinition.json",
   "fieldseparator": ",",
   "files": {
-    "file1":
+     "file1":
     {
       "filename": "kab_portfolio_transaction",
       "filedeffile": "definition_data/PortfolioTransactionFileDefinition.json"
@@ -77,8 +77,18 @@
     },
     "file15":
     {
-      "filename": "sample",
-      "filedeffile": "definition_data/SampleTestFileDefinition.json"
+      "filename": "kab_error",
+      "filedeffile": "definition_data/ErrorsFileDefinition.json"
+    },
+    "file16":
+    {
+      "filename": "kab_key_official",
+      "filedeffile": "definition_data/KeyOfficialsDefinition.json"
+    },
+    "file17":
+    {
+      "filename": "kab_threatmetrix",
+      "filedeffile": "definition_data/ThreatMetrixFileDefinition.json"
     }
   }
 }

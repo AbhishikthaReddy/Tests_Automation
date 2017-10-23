@@ -1,9 +1,5 @@
 import pandas as pd
-from pathlib import Path
-import json
-import os, glob, re
-import filecmp
-import itertools
+import json, os, re, filecmp, itertools
 
 
 class f_comp(object):
@@ -18,7 +14,8 @@ class f_comp(object):
 
 		pass_file_list = os.listdir(resultsfiles_loc+"Pass"+"/")
 		fail_file_list = os.listdir(resultsfiles_loc+"Failed"+"/")
-		
+		result_line = {}
+
 		current_files_passfolder, current_files_failfolder = [], []
 		result_line = []
 

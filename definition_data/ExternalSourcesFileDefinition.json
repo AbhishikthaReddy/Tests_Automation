@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "SourceTypeID": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Code of the external source"
+      "description": "Code of the external source",
+      "data-format":""
     },
     "SourceDate": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date data channel was added or modified"
+      "description": "Date data channel was added or modified",
+      "data-format":""
     },
     "SourceTime": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time data channel was added or modified"
+      "description": "Time data channel was added or modified",
+      "data-format":""
     },
     "StatusID": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of the current status of external source"
+      "description": "Identifier of the current status of external source",
+      "data-format":""
     },
     "HasNoErrors": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Flag denoting whether the external source analysis has errors"
+      "description": "Flag denoting whether the external source analysis has errors",
+      "data-format":""
     },
    "ExternalSourceID": {
      "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage source account identifier"
+      "description": "Kabbage source account identifier",
+      "data-format":""
     },
     "HasDDInstruction": {
      "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes whether a direct debit bureau instruction exists for the source"
+      "description": "Denotes whether a direct debit bureau instruction exists for the source",
+      "data-format":""
     },
     "HexExternalSourceID": {
      "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "ExternalSourceID in hex format."
+      "description": "ExternalSourceID in hex format.",
+      "data-format":""
     }
       
   }

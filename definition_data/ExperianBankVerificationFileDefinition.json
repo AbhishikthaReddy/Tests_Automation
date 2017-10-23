@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "ExternalSourceID": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage bank identifier, maps back to External Source file column of the same name."
+      "description": "Kabbage bank identifier, maps back to External Source file column of the same name.",
+      "data-format":""
     },
     "AccountVerificationMatch": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Result of the account-level validation."
+      "description": "Result of the account-level validation.",
+      "data-format":""
     },
     "AccountOwnerMatch": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the owner validation check."
+      "description": "Result of the owner validation check.",
+      "data-format":""
     },
     "CompanyTypeMatch": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the company-type validation check."
+      "description": "Result of the company-type validation check.",
+      "data-format":""
     },
     "RegistrationNumberMatch": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the registration number validation check."
+      "description": "Result of the registration number validation check.",
+      "data-format":""
     },
     "PersonalDetailsScore": {
       "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for personal details validation."
+      "description": "Score returned for personal details validation.",
+      "data-format":""
     },
     "PersonalAddressScore": {
       "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for personal address validation."
+      "description": "Score returned for personal address validation.",
+      "data-format":""
     },
     "CompanyNameScore": {
       "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for company name validation."
+      "description": "Score returned for company name validation.",
+      "data-format":""
     },
     "CompanyNameAndAddressScore": {
       "order": "10",
@@ -119,7 +128,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for company name + address validation."
+      "description": "Score returned for company name + address validation.",
+      "data-format":""
     },
     "VerificationDate": {
       "order": "11",
@@ -130,7 +140,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of verification check."
+      "description": "Date of verification check.",
+      "data-format":""
     },
     "VerificationTime": {
       "order": "12",
@@ -141,7 +152,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time of verification check"
+      "description": "Time of verification check",
+      "data-format":""
     }
   }
 }

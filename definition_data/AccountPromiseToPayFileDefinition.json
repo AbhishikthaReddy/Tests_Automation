@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "PromiseDate": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of promise made to collector"
+      "description": "Date of promise made to collector",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
     "PromiseAmount": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of promise made to collector"
+      "description": "Amount of promise made to collector",
+      "data-format":""
     },
     "BillingCycle": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Billing cycle for the account"
+      "description": "Billing cycle for the account",
+      "data-format":""
     },
     "DaysDelinquent": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Days account is delinquent on most recent amount due"
+      "description": "Days account is delinquent on most recent amount due",
+      "data-format":""
     },
     "PaymentDueDate": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of payment due, based on cycle date (in format YYYYMMDD)"
+      "description": "Date of payment due, based on cycle date (in format YYYYMMDD)",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
    "RemainingAmount": {
      "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount due after promised payment"
+      "description": "Amount due after promised payment",
+      "data-format":""
     },
     "PromiseStatus": {
      "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Status of the promised payment"
+      "description": "Status of the promised payment",
+      "data-format":""
     },
     "ScheduleStatus": {
      "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "TBD"
+      "description": "TBD",
+      "data-format":""
     },
     "Collector": {
      "order": "10",
@@ -119,7 +128,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "User who spoke to account to elicit the promised payment"
+      "description": "User who spoke to account to elicit the promised payment",
+      "data-format":""
     },
     "PaidAmountAsOfRunDate": {
      "order": "11",
@@ -130,7 +140,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount of promise paid for the batch period"
+      "description": "Amount of promise paid for the batch period",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
     "DelqStatusAtPromiseTaken": {
      "order": "12",
@@ -141,7 +152,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Delinquency status at the time of promise made by the account"
+      "description": "Delinquency status at the time of promise made by the account",
+      "data-format":""
     },
      "DelqStatusAtPromiseKept": {
      "order": "13",
@@ -152,7 +164,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Delinquency status at the time of kept promise from the account"
+      "description": "Delinquency status at the time of kept promise from the account",
+      "data-format":""
     },
      "CurrentBalanceAtPromiseTaken": {
      "order": "14",
@@ -163,7 +176,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Total due amount at time of promise made by the account"
+      "description": "Total due amount at time of promise made by the account",
+      "data-format":""
     }
   }
 }

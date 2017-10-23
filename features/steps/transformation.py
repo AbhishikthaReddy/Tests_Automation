@@ -1,16 +1,8 @@
-from datetime import date
 import pandas as pd
-import glob, os, datetime, re
-import pypyodbc
-import json
+import re, json
 from collections import OrderedDict
 
-
-from features.steps.connect import connection
-
-
 class scenario(object):
-	"""docstring for Count"""
 
 	def __init__(self):
 		self.fn = None
@@ -207,9 +199,36 @@ class scenario(object):
 			else:
 				line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": "Filename not present in Summary Data File"}
 
+			#checking data formats
+
+			result_df_list, list_regex=[], []
+
+			for col in json_def_data_columns_list:
+				regex = json_def_data_columns[col]['data-format']
+				list_regex.append(regex)
+
+			for column in client_file_data_columns_list:
+				count = 0
+				i = (client_file_data_columns_list.index(column))
+				for row in client_file_data[column]:
+					count = count + 1
+					if list_regex[i] != "":
+						if row!="nan":
+							pattern = re.compile(list_regex[i],re.UNICODE)
+							if pattern.findall(str(row)):
+								line8 = {"Test name": "Data Formats", "Result": "Passed"}
+							else:
+								result_df_list.append("Data format is invalid at column-name:{}, row-number:{}, row-element:{}".format(column, count, row))
+								line8 = {"Test name": "Data Formats", "Result": "Failed", "Output":result_df_list}
+						else:
+							line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Nan's are found in this column "+column}
+					else:
+						line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Data format not defined for this column in the definition file"}
+
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" or len(client_file_data) == 0:
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" or len(client_file_data) == 0:
+
 				with open(text_file_pass + client_file_name, 'w') as f1:
 					for line in open(client_file):
 						f1.write(line)
@@ -229,7 +248,7 @@ class scenario(object):
 
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8}
 
 			# creating a json output file in result folder
 

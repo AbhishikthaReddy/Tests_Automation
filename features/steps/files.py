@@ -1,7 +1,5 @@
-import pandas as pd
-import os, fnmatch
+import pandas as pd, os
 from dir_file import dir_create
-import re
 
 class retrieve_files(object):
 	"""docstring for Count"""
