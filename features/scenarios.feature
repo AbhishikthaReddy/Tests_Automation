@@ -24,6 +24,8 @@ Scenario: data type check for columns in a file
 
 @all
 Scenario: data type check for columns in a file
-   Given  a file
     Then  data formats
 
+@all
+Scenario: duplicate values check for rows in a file
+    Then  duplicate values

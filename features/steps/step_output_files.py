@@ -48,29 +48,36 @@ def step_given_the_file(context):
 					@then('data formats')
 					def step_data_type_check(context):
 						pass
+					@then('duplicate values')
+					def step_data_type_check(context):
+						pass
+
 				else:
 					print ("There are no files with the given timestamp")
 
 					@then('column names should match')
 					def step_column_names_should_match(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('column order should match')
 					def step_column_order_should_match(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('check null values')
 					def step_check_null_values(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('empty rows')
 					def step_empty_rows(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('data type check')
 					def step_data_type_check(context):
-						assert context.text, "REQUIRE: corrent data input"
+						assert context.text, "REQUIRE: correct data input"
 
+					@then('duplicate values')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
 
 					@then('data formats')
 					def step_data_type_check(context):

@@ -225,6 +225,28 @@ class scenario(object):
 					else:
 						line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Data format not defined for this column in the definition file"}
 
+			#checking duplicate values
+
+			# dup_result_list=[]
+			# with open(client_file) as f:
+			# 		seen = set()
+			# 		dups = set()
+			# 		num=0
+			# 		for line in f:
+			# 			num = num+1
+			# 			if line in seen:
+			# 				if line not in dups:
+			# 					dups.add(line)
+			# 					dup_result_list.append("Duplicate row is found in line "+str(num))
+
+			# 			else:
+			# 				seen.add(line)
+
+			# 		if(len(dups)>0):
+			# 			line7={"Test name": "Duplicate values", "Result": "Failed","Output":dup_result_list}
+			# 		else:
+			# 			line7={"Test name": "Duplicate values", "Result": "Passed"}
+
 			# copying the file to passed or fail folder
 
 			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" or len(client_file_data) == 0:
