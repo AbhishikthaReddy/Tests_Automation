@@ -16,16 +16,6 @@ class scenario(object):
 		self.fn = None
 
 
-	# def control_file_values(control_file, sep_value):
-
-	# 	temp = pd.read_csv(control_file, sep='|')
-	# 	df = pd.DataFrame()
-	# 	df['NumberOfRows'] = temp['FileName'].apply(lambda x: x.split(sep_value)[1])
-	# 	df['FileName'] = temp['FileName'].apply(lambda x: x.split(sep_value)[0])
-	# 	df = df.groupby('FileName').sum()
-	# 	return df
-
-
 	def seperator_value(def_file_name):
 
 		sep_value = pd.read_json(def_file_name)
@@ -33,13 +23,10 @@ class scenario(object):
 		return sep_value
 
 
-	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names, control_def_file_loc,date,timestamp):
-
-		control_file_sep_value = scenario.seperator_value(control_def_file_loc)
-		# control_file = scenario.control_file_values(control_file, control_file_sep_value)
+	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names, control_def_file_loc,date,timestamp, row_count_file):
 
 		final_lines_to_file = {}
-		pass_control_file_data, fail_control_file_data, Summary_line = [], [], []
+		pass_control_file_data, fail_control_file_data = [], []
 
 		for i in range(0, len(datafiles_names)):
 
@@ -54,11 +41,11 @@ class scenario(object):
 			text_file_fail = resultsfilelocation + "/" + "Failed/"
 			text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + ".json"
 			pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
-			file_comp = resultsfilelocation + "/" + "File_comp/"
 
 			client_file_data = pd.read_csv(client_file, sep=sep_value)
 			json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
 			json_def_data_no_orderdict = pd.read_json(json_def)
+			row_count_file_data = pd.read_csv(row_count_file, sep=sep_value)
 
 			# column names validation
 
@@ -191,13 +178,24 @@ class scenario(object):
 			else:
 				line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
 
+			# Row count check
+
+			if client_file_name in list(row_count_file_data.index):
+
+				if int(row_count_file_data.xs(client_file_name)) != int(len(client_file_data)):
+					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "The partner file has "+str(int(row_count_file_data.xs(client_file_name)))+" rows but row count file has "+str(int(len(client_file_data)))}
+				else:
+					line6 = {"Test name": "Row count", "Result": "Passed"}
+
+			else:
+				line6 = {"Test name": "Row count", "Result": "Failed", "Output": "Filename not present in Row count file"}
+
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed":
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed":
 				with open(text_file_pass + client_file_name, 'w') as f1:
 					for line in open(client_file):
 						f1.write(line)
-				Summary_line.append(client_file_name + "|Pass")
 
 				# pass control file
 
@@ -207,23 +205,18 @@ class scenario(object):
 				with open(text_file_fail + client_file_name, 'w') as f1:
 					for line in open(client_file):
 						f1.write(line)
-				Summary_line.append(client_file_name + "|Failed")
 
 				# failed control file
 
 				fail_control_file_data.append(client_file_name)
 
-			with open(file_comp+"files_result.txt", 'a') as out:
-				for line in Summary_line:
-					out.write('\n'+line)
-
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6}
 
 			# creating a json output file in result folder
 
-			with open(text_file_result, "a") as output:
+			with open(text_file_result, "w") as output:
 				json.dump(final_lines_to_file, output, indent=4)
 			output.close()
 

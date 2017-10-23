@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import os, glob, re
 import filecmp
+import itertools
 
 
 class f_comp(object):
@@ -17,33 +18,33 @@ class f_comp(object):
 
 		pass_file_list = os.listdir(resultsfiles_loc+"Pass"+"/")
 		fail_file_list = os.listdir(resultsfiles_loc+"Failed"+"/")
-		result_line = {}
-
-		results_file = pd.read_csv(resultsfiles_loc+"File_comp/files_result.txt", names=['Filename', 'Result'], header=None, sep="|")
-		print(set(results_file['Filename']),"//////")
 		
+		current_files_passfolder, current_files_failfolder = [], []
+		result_line = []
+
 		for file in datafiles_names:
-			file_name = file.rsplit("/", 1)[1]
-			file_name_split = file_name.rsplit(timestamp, 1)[0]
-
-			if len(pass_file_list) > 0 or len(fail_file_list) > 0:
-				if len(pass_file_list) > 0:
-					for pass_file in pass_file_list:
-						if re.search(str(file_name_split), pass_file):
-							print("file has passed before")
-							print(file_name, pass_file,"..........................")
-							if str(file_name_split) == str(pass_file):
-								print("The file ")
-				elif len(fail_file_list) > 0:
-					for fail_file in fail_file_list:
-						if re.search(str(file_name_split), pass_file):
-							print("file has FAILED before")
-							print(file_name, fail_file," -----------------------------")
+			client_file_name = file.rsplit("/", 1)[1]
+			if client_file_name in pass_file_list:
+				file_name = client_file_name.rsplit(timestamp, 1)[0]
+				for pass_file in pass_file_list:
+					if re.search(str(file_name), pass_file):
+						current_files_passfolder.append(pass_file)
+				for fail_file in fail_file_list:
+					if re.search(str(file_name), fail_file):
+						current_files_failfolder.append(fail_file)
+					
+				if len(current_files_passfolder) > 1:
+					for a, b in itertools.combinations(current_files_passfolder, 2):
+						line = filecmp.cmp(resultsfiles_loc+"Pass"+"/"+a, resultsfiles_loc+"Pass"+"/"+b)
+						if line == False:
+							result_line.append(a+"--"+b+":"+"The two files are different")
+						else:
+							result_line.append(a+"--"+b+":"+"The two files are similar")
 				else:
-					result_line = ["There are no passed files to make the comparison"]
+					result_line.append("There are no other timestamp files to be compared to "+client_file_name+" in the Pass folder")
 			else:
-				result_line = ["There are no files to make the comparison"]
-
-		with open(resultsfiles_loc+"SUMMARY_FILE.json", 'a') as f2:
+				result_line.append(client_file_name+" passed for first time")
+		
+		with open(resultsfiles_loc+"SUMMARY_FILE_"+timestamp+".json", 'w') as f2:
 			json.dump(result_line, f2, indent=4)
 		f2.close()
