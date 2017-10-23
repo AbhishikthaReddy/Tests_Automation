@@ -243,13 +243,32 @@ class scenario(object):
 			# 				seen.add(line)
 
 			# 		if(len(dups)>0):
-			# 			line7={"Test name": "Duplicate values", "Result": "Failed","Output":dup_result_list}
+			# 			line9={"Test name": "Duplicate values", "Result": "Failed","Output":dup_result_list}
 			# 		else:
-			# 			line7={"Test name": "Duplicate values", "Result": "Passed"}
+			# 			line9={"Test name": "Duplicate values", "Result": "Passed"}
 
+			#check for special_characters
+
+			pass_list3, result_fail_list1 = [], []
+
+			for column in client_file_data_columns_list:
+				p=1
+				for val in client_file_data[column]:
+					if any(char in str(val) for char in ("~", "%", "*", "+", "&","\"","~","`","!","@","#","$","^","(",")","_","-","=","[","]","{","}",":",">",";","'",",","<","/","?")):
+						result_fail_list1.append("Special character " + str(val)+ " is found at row " + str(p) + " in " +  str(column))
+					else:
+						pass_list3.append(column)
+					p = p + 1
+
+
+			if len(pass_list3) == len(client_file_data):
+				line10 = {"Test name": "Special_characters", "Result": "Passed"}
+			else:
+				line10={"Test name": "Special_characters", "Result": "Failed","Output": result_fail_list1}
+		
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" or len(client_file_data) == 0:
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" and line10["Result"] == "Passed" or len(client_file_data) == 0:
 
 				with open(text_file_pass + client_file_name, 'w') as f1:
 					for line in open(client_file):
@@ -270,7 +289,7 @@ class scenario(object):
 
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8, "Test-10": line10}
 
 			# creating a json output file in result folder
 
