@@ -43,7 +43,6 @@ class scenario(object):
 			pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
 
 			client_file_data = pd.read_csv(client_file, sep=sep_value)
-			print(len(client_file_data),"..................")
 			json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
 			json_def_data_no_orderdict = pd.read_json(json_def)
 			row_count_file_data = pd.read_csv(row_count_file, sep=field_separator)
