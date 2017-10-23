@@ -3,6 +3,7 @@
   "datafilelocation" : "data",
   "definitionfilelocation" : "definition_data",
   "controlfile": "definition_data/ControlFileDefinition.json",
+  "fieldseparator": ",",
   "files": {
     "file1":
     {

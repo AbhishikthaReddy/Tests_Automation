@@ -23,7 +23,7 @@ class scenario(object):
 		return sep_value
 
 
-	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names, control_def_file_loc,date,timestamp, row_count_file):
+	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names, control_def_file_loc,date,timestamp, row_count_file, summary_invalid_file, field_separator):
 
 		final_lines_to_file = {}
 		pass_control_file_data, fail_control_file_data = [], []
@@ -45,7 +45,9 @@ class scenario(object):
 			client_file_data = pd.read_csv(client_file, sep=sep_value)
 			json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
 			json_def_data_no_orderdict = pd.read_json(json_def)
-			row_count_file_data = pd.read_csv(row_count_file, sep=sep_value)
+			row_count_file_data = pd.read_csv(row_count_file, sep=field_separator)
+			summary_invalid_data = pd.read_csv(summary_invalid_file, sep=field_separator)
+
 
 			# column names validation
 
@@ -190,9 +192,24 @@ class scenario(object):
 			else:
 				line6 = {"Test name": "Row count", "Result": "Failed", "Output": "Filename not present in Row count file"}
 
+			# Summary data check
+			
+			if client_file_name in list(summary_invalid_data['FileName']):
+				
+				if summary_invalid_data.ix(client_file_name)[0]['Aggregation-type'] == 'count':
+					if len(client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]) == int(summary_invalid_data.ix(client_file_name)[0]['Assertion-value']):
+						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has passed"}
+					else:
+						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has not passed the count assertion"}
+				else:
+					line7 = {"Test name": "Summary Data check", "Result": "Failed"}
+
+			else:
+				line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": "Filename not present in Summary Data File"}
+
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed":
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed":
 				with open(text_file_pass + client_file_name, 'w') as f1:
 					for line in open(client_file):
 						f1.write(line)
@@ -212,7 +229,7 @@ class scenario(object):
 
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7}
 
 			# creating a json output file in result folder
 

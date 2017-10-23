@@ -21,6 +21,9 @@ class retrieve_files(object):
 			deffiles_names = []
 			data_files_all = os.listdir(data_file_loc+"/")
 			row_count_file = data_file_loc+"/kab_row_count_"+date+".txt"
+			summary_invalid_file = data_file_loc+"/kab_summary_data_"+date+".csv"
+
+			field_separator = masterfile.fieldseparator.ix[0]
 
 			for i in range(0, len(text_files)):
 				file_index = text_files.index[i]
@@ -32,6 +35,6 @@ class retrieve_files(object):
 				if filename_master_json+"_"+date+"_"+timestamp+".csv" in data_files_all:
 					datafiles_names.append(data_file_loc+"/"+filename_master_json+"_"+date+"_"+timestamp+".csv")
 					deffiles_names.append(filedef_master_json)
-			return datafiles_names, deffiles_names, control_def_file_loc, row_count_file
+			return datafiles_names, deffiles_names, control_def_file_loc, row_count_file, summary_invalid_file, field_separator
 		except:
 			print("MasterJSON File Not Found in the specified path")
