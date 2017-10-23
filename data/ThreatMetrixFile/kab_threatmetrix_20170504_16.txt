@@ -1,3 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-831600{20170504{login{New Device|FlashDisabled{low{165455
-819321{20170504{login{ImagesDisabled|FlashDisabled{neutral{160116

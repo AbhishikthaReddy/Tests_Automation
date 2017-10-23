@@ -1,3 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-802149{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{173521
-831725{20170504{account_creation{New Device|ImagesDisabled|FlashDisabled{low{174302

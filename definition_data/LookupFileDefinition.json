@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Lookup table name column is found"
+      "description": "Lookup table name column is found",
+      "data-format":""
     },
     "ColumnName": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Column Name from file"
+      "description": "Column Name from file",
+      "data-format":""
     },
     "ID": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of specified value"
+      "description": "Identifier of specified value",
+      "data-format":""
     },
     "Value": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Text value"
+      "description": "Text value",
+      "data-format":""
     }
   }
 }

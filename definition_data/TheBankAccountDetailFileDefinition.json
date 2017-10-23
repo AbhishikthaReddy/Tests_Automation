@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "ExternalSourceID": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage source account identifier.  Maps to the External Source file via the column of the same name"
+      "description": "Kabbage source account identifier.  Maps to the External Source file via the column of the same name",
+      "data-format":""
     },
     "SortCode": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Sort code of account"
+      "description": "Sort code of account",
+      "data-format":""
     },
     "AccountNumber": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Account number of account"
+      "description": "Account number of account",
+      "data-format":""
     }
   }
 }

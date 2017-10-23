@@ -1,8 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-831484{20170504{login{New Device|ImagesDisabled|FlashDisabled{low{114327
-831484{20170504{login{New Device|ImagesDisabled|FlashDisabled{low{115001
-831501{20170504{account_creation{New Device|ImagesDisabled|FlashDisabled{low{115054
-779823{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{112007
-779823{20170504{transfer{{{112246
-779823{20170504{transfer{{{112637
-753793{20170504{login{EMail over 30 days|FlashDisabled{neutral{110644

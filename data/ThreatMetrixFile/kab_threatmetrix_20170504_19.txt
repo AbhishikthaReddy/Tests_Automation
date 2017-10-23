@@ -1,5 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-757900{20170504{login{EMail over 30 days{neutral{195949
-769606{20170504{login{EMail over 30 days{neutral{193112
-781493{20170504{login{EMail over 30 days{neutral{192952
-781493{20170504{login{EMail over 30 days{neutral{192956

@@ -1,5 +1,5 @@
-import pandas as pd
-import os, fnmatch, re
+import pandas as pd, os
+from dir_file import dir_create
 
 class retrieve_files(object):
 	"""docstring for Count"""
@@ -7,55 +7,32 @@ class retrieve_files(object):
 	def __init__(self):
 		self.fn = None
 
-	def find(pattern, path):
-		result = []
-		for file in os.listdir(path):
-			if fnmatch.fnmatch(file, '*.txt'):
-				total_file_name = file
-				if total_file_name[-12:-4] == str(pattern):
-					result.append(total_file_name)
-			elif fnmatch.fnmatch(file, '*.csv'):
-				total_file_name = file
-				if total_file_name[-12:-4] == str(pattern):
-					result.append(total_file_name)
-		return result
 
+	def files(self, date, masterfile_loc,resultsfilelocation, timestamp):
+		try:
+			masterfile = pd.read_json(masterfile_loc)
+			control_def_file_loc = masterfile.controlfile.ix[0]
+			data_file_loc = masterfile.datafilelocation.ix[0]
+			# control_data_file = data_file_loc+"/"+"kab_control_"+date+".txt"
+			text_files = masterfile.files
+			datafiles_names = []
+			deffiles_names = []
+			data_files_all = os.listdir(data_file_loc+"/")
+			row_count_file = data_file_loc+"/kab_row_count_"+date+".txt"
+			summary_invalid_file = data_file_loc+"/kab_summary_data_"+date+".csv"
 
-	def find1(pattern, path):
-		result = []
-		for file in os.listdir(path):
-			if fnmatch.fnmatch(file, '*.txt'):
-				total_file_name = file
-				if re.search(str(pattern), total_file_name):
-					result.append(total_file_name)
-			elif fnmatch.fnmatch(file, '*.csv'):
-				total_file_name = file
-				if re.search(str(pattern), total_file_name):
-					result.append(total_file_name)
-		return result
+			field_separator = masterfile.fieldseparator.ix[0]
 
-
-	def files(self, date, masterfile_loc):
-		masterfile = pd.read_json(masterfile_loc)
-		control_def_file_loc = masterfile.controlfile.ix[0]
-		controlfile = pd.read_json(control_def_file_loc)
-		controlfile_folder = controlfile.filename.ix[0]
-		control_data_file = "data/"+controlfile_folder+"/"+retrieve_files.find(date, "data/"+controlfile_folder)[0]
-		text_files = masterfile.files
-		datafiles_names = []
-		deffiles_names = []
-		for i in range(0, len(text_files)):
-			a = text_files.index[i]
-			b = str(text_files[a]['filename'])
-			b1 = str(retrieve_files.find1(date, "data/"+b)[0])
-			c = text_files[a]['filedeffile']
-			datafiles_names.append("data/"+b+"/"+b1)
-			deffiles_names.append(c)
-		return datafiles_names, deffiles_names, control_data_file, control_def_file_loc
-
-
-
-
-
-
-
+			for i in range(0, len(text_files)):
+				file_index = text_files.index[i]
+				filename_master_json = str(text_files[file_index]['filename'])
+				filedef_master_json = str(text_files[file_index]['filedeffile'])
+				if filename_master_json+"_"+date+"_"+timestamp+".txt" in data_files_all:
+					datafiles_names.append(data_file_loc+"/"+filename_master_json+"_"+date+"_"+timestamp+".txt")
+					deffiles_names.append(filedef_master_json)
+				if filename_master_json+"_"+date+"_"+timestamp+".csv" in data_files_all:
+					datafiles_names.append(data_file_loc+"/"+filename_master_json+"_"+date+"_"+timestamp+".csv")
+					deffiles_names.append(filedef_master_json)
+			return datafiles_names, deffiles_names, control_def_file_loc, row_count_file, summary_invalid_file, field_separator
+		except:
+			print("MasterJSON File Not Found in the specified path")

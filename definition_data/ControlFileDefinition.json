@@ -1,5 +1,5 @@
 {
-  "filename": "Controlfile",
+  "filename": "controlfile",
   "filenameformat" : "kab_control_yyyymmdd.txt",
   "decimalseparator" : ".",
   "fieldseparator": "{",
@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage file name"
+      "description": "Kabbage file name",
+      "data-format":""
     },
     "NumberOfRows": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of rows contained in the given file"
+      "description": "Number of rows contained in the given file",
+      "data-format":""
     }
   }
 }

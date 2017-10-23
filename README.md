@@ -69,7 +69,7 @@ Instructions to run the project
 
 ==========================================================================================
 
-behave -D date="20170504" -D masterfile_loc="location of masterfile with name"
+behave -D date="20170504" -D masterfile_loc="location of masterfile with name" -D resultsfiles_loc="results files location" -D timestamp="153737" --no-capture
 
 ===========================================================================================
 

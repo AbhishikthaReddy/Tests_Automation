@@ -9,19 +9,8 @@
   "encrypted": "Yes",
   "fullorincremental": "Incremental",
   "description": "",
-  "column_names": "['AccountID', 'LoanID', 'ProjectionNumber', 'InterestRate', 'Amount', 'StatementDate', 'Principal', 'Interest', 'Fees']",
+  "column_names": "['LoanID', 'AccountID', 'ProjectionNumber', 'InterestRate', 'Amount', 'StatementDate', 'Principal', 'Interest', 'Fees']",
   "columns": {
-    "AccountID": {
-      "order": "1",
-      "dbtype": "INT",
-      "minvalue" : "",
-      "maxvalue": "",
-      "maxlength": "",
-      "validvalues": "",
-      "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Kabbage account identifier"
-    },
     "LoanID": {
       "order": "2",
       "dbtype": "INT",
@@ -31,7 +20,20 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage loan identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
+    },
+    "AccountID": {
+      "order": "1",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage loan identifier",
+      "data-format":""
     },
     "ProjectionNumber": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of projection for the given loan.  A ProjectionNumber of 0 represents the current statemented period."
+      "description": "Number of projection for the given loan.  A ProjectionNumber of 0 represents the current statemented period.",
+      "data-format":""
     },
     "InterestRate": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Interest rate for the given projection"
+      "description": "Interest rate for the given projection",
+      "data-format":""
     },
     "Amount": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Aggregate amount due shown on statement.  For ProjectionNumber 0 this represents current due + past due amounts and will reflect modifications to that amount such as early payment."
+      "description": "Aggregate amount due shown on statement.  For ProjectionNumber 0 this represents current due + past due amounts and will reflect modifications to that amount such as early payment.",
+      "data-format":""
     },
     "StatementDate": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date statement will be generated for projection"
+      "description": "Date statement will be generated for projection",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
    "Principal": {
      "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount to be applied to principal"
+      "description": "Amount to be applied to principal",
+      "data-format":""
     },
     "Interest": {
      "order": "8",
@@ -97,7 +104,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount to be applied to interest balance on loan"
+      "description": "Amount to be applied to interest balance on loan",
+      "data-format":""
     },
     "Fees": {
      "order": "9",
@@ -108,7 +116,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Amount to be applied to fee balance on loan"
+      "description": "Amount to be applied to fee balance on loan",
+      "data-format":""
     }
       
   }

@@ -1,7 +1,0 @@
-ID{Fname{Lname{Age{Gender{StartDate{Dept{Salary
-1{Swarup{Ravoori{30{M{7/1/2017{IT{70000
-2{Mike{Reynolds{25{ Male {8/1/2017{HR{80000
-3{Dave{Davis{45{M{13/08/2017{PM{90000
-4{Piper{{23{F{12/21/2017{Lab{
-5{{Bill{{M{8/10/2017{MGR{
-{Bill{{-10{X{{MG{7000

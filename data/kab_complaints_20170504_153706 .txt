@@ -1,0 +1,1 @@
+AccountID{CaseReference{Resolver{Definition{Stage{Status{ReceivedDate{ClosedDate{AcceptanceConfirmed{Decision{ComplaintType{Issues{Investigation{Actions{RedressPayments{D&IPayments{CreatedBy{FinalReponseSent{SummaryResponsesent{ParentTicketCreatedDate{ParentTicketClosedDate{DirectDebitStatus{CurrencyISOCode

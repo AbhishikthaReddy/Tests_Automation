@@ -7,4 +7,12 @@ __pycache__/
 *$py.class
 
 
-
+data/
+defintion_data/
+Pass/
+Failed/
+Result/
+Summary_Result/
+*.txt
+*.json
+*.csv

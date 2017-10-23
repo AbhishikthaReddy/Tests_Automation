@@ -1,0 +1,51 @@
+{
+  "filename": "dfsample",
+  "filenameformat" : "dfsample_yyyymmdd.txt",
+  "decimalseparator" : ".",
+  "fieldseparator": "{",
+  "dateformat": "YYYYMMDD",
+  "timeformat": "",
+  "availability": "Daily",
+  "encrypted": "Yes",
+  "fullorincremental": "Full",
+  "description": "",
+  "column_names": "['ssn','phone','datee']",
+  "columns": {
+  "ssn": {
+      "order": "1",
+      "dbtype": "VARCHAR(50)",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Date of loan origination",
+      "data-format":"^(?!219-09-9999|078-05-1120)(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$"
+    },
+      "phone": {
+      "order": "2",
+      "dbtype": "VARCHAR(50)",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Date of loan origination",
+      "data-format":"(\\d{3}[-\\.\\s]??\\d{3}[-\\.\\s]??\\d{4}|\\(\\d{3}\\)\\s*\\d{3}[-\\.\\s]??\\d{4}|\\d{3}[-\\.\\s]??\\d{4})"
+    },
+      "datee": {
+        "order": "3",
+        "dbtype": "VARCHAR(50)",
+        "minvalue": "",
+        "maxvalue": "",
+        "maxlength": "",
+        "validvalues": "",
+        "allowedcharacters": "",
+        "allowempty": "No",
+        "description": "Date of loan origination",
+        "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
+      }
+    }
+  }

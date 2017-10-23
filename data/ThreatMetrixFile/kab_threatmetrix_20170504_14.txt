@@ -1,8 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-831512{20170504{login{New Device|ImagesDisabled|FlashDisabled{low{141449
-831512{20170504{login{New Device|ImagesDisabled|FlashDisabled{low{144148
-739912{20170504{login{EMail over 30 days|Good Local Long Term Customer|Good Global Long Term Customer|ImagesDisabled|FlashDisabled{neutral{145038
-783434{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{144237
-802149{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{140130
-802149{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{142751
-764367{20170504{login{IP in Global List|DeviceProxyGeoMismatch|HiddenProxy|ProxyTrueOrganizationMismatch|ProxyTrueISPMismatch|ProxyTrueRegionMismatch|ProxyTrueCityMismatch|EMail over 30 days|Session Anomaly|FlashDisabled{high{144731

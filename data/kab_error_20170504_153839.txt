@@ -1,0 +1,20 @@
+AccountID{ErrorDate{ErrorTime{ErrorID{ProcessID{ErrorTypeID{Comment{ExternalSourceID{ClosedBy
+831487{20170504{102924{964638{2{8{{2044114{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831485{20170504{102709{2061111{2{28{Yodlee Hash Match{831485{
+753793{20170504{111212{964657{2{8{{2044128{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831480{20170504{111550{964659{2{8{{2044129{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831506{20170504{121101{964697{2{8{{2044165{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831487{20170504{102709{2061110{2{28{Yodlee Hash Match{831487{
+831239{20170504{115904{3641262{1{16{{2043513{
+831480{20170504{110951{964655{2{8{{2044124{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831519{20170504{131340{964726{2{8{{2044220{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+803951{20170504{111935{3641109{1{16{{1971323{
+811876{20170504{110023{964648{2{27{XXX@XXX.com - 554 delivery error: dd This user doesn&apos;t have a yahoo.com account (XXX@XXX.com) [0] - mta1361.mail.bf1.yahoo.com  (554).{{
+831600{20170504{182528{965169{2{8{{2044965{
+831725{20170504{174758{965116{2{8{{2044840{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831484{20170504{124725{964712{2{8{{2044198{
+831512{20170504{154022{964932{2{8{{2044509{
+831725{20170504{175721{965130{2{18{Yodlee Name Mismatch - Account Holder Name: XXX XXX{2044840{
+831480{20170504{112611{964661{2{8{{2044140{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController
+831481{20170504{92402{964627{2{8{{2044100{
+831600{20170504{151603{964896{2{8{{2044450{Kabbage.DataService.Api.Areas.Banking.Controllers.BankAddController

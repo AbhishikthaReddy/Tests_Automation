@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "CreationDate": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of event"
+      "description": "Date of event",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
     "EventType": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Type of ThreatMetrix event captured"
+      "description": "Type of ThreatMetrix event captured",
+      "data-format":""
     },
     "ReasonCode": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Delimited list of codes captured"
+      "description": "Delimited list of codes captured",
+      "data-format":""
     },
     "RiskRating": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Outcome rating of the ThreadMetrix event"
+      "description": "Outcome rating of the ThreadMetrix event",
+      "data-format":""
     },
     "CreationTime": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time of event"
+      "description": "Time of event",
+      "data-format":""
     }
   }
 }

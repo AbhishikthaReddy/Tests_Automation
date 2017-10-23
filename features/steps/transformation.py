@@ -1,31 +1,11 @@
-from features.steps.dir_file import dir_create
-from datetime import date
-from pprint import pprint
 import pandas as pd
-import glob, os, datetime, re
-import json
-import numpy as np
-import pypyodbc
-import re
-
-from features.steps.connect import connection
-
+import re, json
+from collections import OrderedDict
 
 class scenario(object):
-	"""docstring for Count"""
 
 	def __init__(self):
 		self.fn = None
-
-
-	def control_file_values(control_file, sep_value):
-
-		temp = pd.read_csv(control_file, sep='|')
-		df = pd.DataFrame()
-		df['NumberOfRows'] = temp['FileName'].apply(lambda x: x.split(sep_value)[1])
-		df['FileName'] = temp['FileName'].apply(lambda x: x.split(sep_value)[0])
-		df = df.groupby('FileName').sum()
-		return df
 
 
 	def seperator_value(def_file_name):
@@ -35,241 +15,281 @@ class scenario(object):
 		return sep_value
 
 
-	def scenario_writing_to_files(self, datafiles_names, deffiles_names, control_file, control_def_file_loc):
-
-		control_file_sep_value = scenario.seperator_value(control_def_file_loc)
-		control_file = scenario.control_file_values(control_file, control_file_sep_value)
+	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names, control_def_file_loc,date,timestamp, row_count_file, summary_invalid_file, field_separator):
 
 		final_lines_to_file = {}
+		pass_control_file_data, fail_control_file_data = [], []
 
 		for i in range(0, len(datafiles_names)):
 
 			client_file = datafiles_names[i]
 			json_def = deffiles_names[i]
 			sep_value = scenario.seperator_value(json_def)
-			client_file_name = client_file.split('/')[2]
+			client_file_name = client_file.rsplit("/", 1)[1]
 			json_def_name = json_def.split('/')[1]
 			client_file_name_split = client_file_name[-len(client_file_name):-4]
 
-			text_file_pass = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')+"/"+"Pass/"
-			text_file_fail = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')+"/"+"Failed/"
-			text_file_result = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')+"/"+"Result/"+client_file_name_split+".json"
+			text_file_pass = resultsfilelocation + "/" + "Pass/"
+			text_file_fail = resultsfilelocation + "/" + "Failed/"
+			text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + ".json"
+			pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
+
+			client_file_data = pd.read_csv(client_file, sep=sep_value)
+			json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+			json_def_data_no_orderdict = pd.read_json(json_def)
+			row_count_file_data = pd.read_csv(row_count_file, sep=field_separator)
+			summary_invalid_data = pd.read_csv(summary_invalid_file, sep=field_separator)
 
 
-			# checking whether the partner file is present in Control File
-			
-			if client_file_name in list(control_file.index):
+			# column names validation
 
-				client_file_data = pd.read_csv(client_file, sep= sep_value)
-				json_def_data = pd.read_json(json_def)
-				
-				# row count validation
+			client_file_data_columns_list = (list(client_file_data.columns))
+			client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
+			json_def_data_columns_list = (list(json_def_data["columns"]))
+			json_def_data_columns_list_case_sensitive = [i.lower() for i in json_def_data_columns_list]
 
-				if int(control_file.xs(client_file_name)) != int(len(client_file_data)):
-					line1 = {"Test name": "Rows count", "Result": "Failed", "Output": "The partner file has "+str(int(control_file.xs(client_file_name)))+" rows but control file has "+str(int(len(client_file_data)))}
-				else:
-					line1 = {"Test name": "Rows count", "Result": "Passed"}
+			if len(set(client_file_data_columns_list_case_sensitive).intersection(json_def_data_columns_list_case_sensitive)) == len(json_def_data_columns_list_case_sensitive):
+				line1 = {"Test name": "Column names", "Result": "Passed"}
+			else:
+				line1 = {"Test name": "Column names", "Result": "Failed", 
+						 "Output": {"The expected columns are": list(json_def_data_columns_list)}, 
+						 "but the columns in partner file are": list(client_file_data_columns_list)}
 
-				# column names validation
+			# column order validation
 
-				l1 = (list(client_file_data.columns))
-				l2 = (list(json_def_data["columns"].index))
+			json_def_data_columns = (json_def_data["columns"])
+			temp1 = []
+			def_col, pass_list, fail_list = {}, {}, {}
 
-				if len(set(l1).intersection(l2)) == len(l2) :
-					line2 = {"Test name": "Column names", "Result": "Passed"}
-				else:
-					line2 = {"Test name": "Column names", "Result": "Failed", "Output": "The partner file has other columns "+str(set(l1).union(l2) - set(l1).intersection(l2))}
-
-				# column order validation
-
-				l2 = (json_def_data["columns"])
-				l2_values = (list(json_def_data["columns"].index))
-
-				def_col, pass_list, fail_list = {}, {}, {}
-
-				for index, col in enumerate(l2_values):
-					if int(l2[col]['order']) <= len(l1):
-						def_col[int(l2[col]['order'])-1] = col
-						def_col.update(def_col)
-				if len(def_col.keys()) != len(l1):
-					fail_list[-1000] = "Length of the columns doesn't match and the columns present in partner files are"
-					for i in range(len(l1)):
-						fail_list[i] = str(l1[i])
-				else:
-					for i in def_col:
-						if str(def_col[i]) == str(l1[i]):
-							pass_list[i] = str(def_col[i])
-						else:
-							fail_list[i] = str(def_col[i])
-						
-				if len(fail_list) != 0:
-					line3 = {"Test name": "Column order", "Result": "Failed", "Column not in order": list(fail_list.values())}
-				else:
-					line3 = {"Test name": "Column order", "Result": "Passed"}
-
-
-				#checking null values
-
-				l4 = client_file_data
-				dff = pd.DataFrame(l4)
-				dff2=dff[dff.isnull().any(axis=1)]
-				if(dff.isnull().sum().sum()):
-					dff2.index=dff2.index+1
-					output1= dff.columns[dff.isnull().any().tolist()] +":"+ str(dff2.index.tolist())
-					line4 = {"Test name": "Check for nulls", "Result": "Failed/Nulls are found","Null values found in":output1.tolist()}
-				else:
-					line4 = {"Test name": "Check for nulls", "Result": "Passed"}
-
-				# checking the empty rows
-
-				i = 1
-				matches = {}
-				empty_rows_list = []
-				
-				with open(client_file,'r') as out:
-					for line in out:
-						if line == '\n':
-							matches[i] = "matched"
-							matches.update(matches)
-						else:
-							matches[i] = "not matched"
-							matches.update(matches)
-						i = i +1
-
-				key = list(matches.keys())
-				val = list(matches.values())
-				for i in range(len(val)):
-					if val[i] == "matched":
-						empty_rows_list.append("The file has empty row at "+str(key[i]))
-
-				if len(empty_rows_list) != 0:
-					line5 = {"Test name": "Empty Rows", "Result": "Failed", "Output": empty_rows_list}
-				else:
-					line5 = {"Test name": "Empty Rows", "Result": "Passed"}
-
-				#aggregate_function check
-
-				if(client_file_name=="test_20170504.csv"):
-
-					def_agg_col = {}
-					def_match={}
-					data_match={}
-					pass_list1=[]
-					fail_list1=[]
-
-					for index, col in enumerate(l2_values):
-						def_agg_col[col] = l2[col]['aggregate_function']
-						def_agg_col.update(def_agg_col)
-
-					for index, col in enumerate(l2_values):
-						query = l2[col]['sql_query']
-						def_match[col]=connection.makeconnection(self, query)
-						def_match.update(def_match)
-					#print(def_match)
-
-					for col in client_file_data.columns:
-						data_match[col]=len(client_file_data[col])
-						data_match.update(data_match)
-					#print(data_match)
-
-					for key in data_match.keys():
-						if data_match[key]==def_match[key]:
-							pass_list1.append("matched")
-						else:
-							fail_list1.append("not matched")
-					if len(pass_list1)==len(data_match.keys()):
-						line6={"Test name": "Summary Data check", "Result": "Passed"}
+			for index, col in enumerate(json_def_data_columns_list):
+				if int(json_def_data_columns[col]['order']) <= len(client_file_data_columns_list):
+					def_col[int(json_def_data_columns[col]['order']) - 1] = col
+					def_col.update(def_col)
+			if len(def_col.keys()) != len(client_file_data_columns_list_case_sensitive):
+				fail_list[-1000] = "Length of the columns doesn't match and the columns present in partner files are"
+				for i in range(len(client_file_data_columns_list_case_sensitive)):
+					fail_list[i] = str(client_file_data_columns_list_case_sensitive[i])
+			else:
+				for i in def_col:
+					if str(def_col[i]).lower() == str(client_file_data_columns_list_case_sensitive[i]):
+						pass_list[i] = str(def_col[i])
 					else:
-						line6={"Test name": "Summary Data check", "Result": "Failed"}
-				else:
-					line6={"Test name": "Summary Data check", "Result": "No aggregation function is defined for this file"}
+						fail_list[i] = str(def_col[i])
+			if len(fail_list) != 0:
 
-				# check for the data-types
-
-				data_file_columns = client_file_data.columns
-
-				datatype_col = {}
-
-				result_fail_list, column_pass_list, column_fail_list = [], [], []
-
-				datatype_col_rename = {'INT' : 'int64', 'int' : 'int64', 'BIGINT' : 'int64', 'SMALLINT' : 'int64', 'NVARCHAR(50)' : 'str','VARCHAR(50)':'str', 'CHAR(8)' : 'str', 'DECIMAL(18,2)' : 'float64' , 'BIT' : 'bool_',  'DECIMAL(18,4)' : 'float64', 'CHAR(2)' : 'str', 'VARCHAR(10)' : 'str', 'CHAR(1)' : 'str', 'DATE' : 'date', 'NVARCHAR(3)' : 'str', 'NVARCHAR(500)' : 'str', 'NVARCHAR(100)' : 'str', 'NVARCHAR(255)' : 'str', 'nvarchar(255)' : 'str', 'NVARCHAR(25)' : 'str', 'NVARCHAR(3000)' : 'str', 'NVARCHAR(40)' : 'str', 'NVARCHAR(20)' : 'str'}
-
-				for index, col in enumerate(l2_values):
-					datatype_col[col] = l2[col]['dbtype']
-					datatype_col.update(datatype_col)
-
-				dict3 = {k:datatype_col_rename[v] for k,v in datatype_col.items()}
-				for column in data_file_columns:
-					if column in dict3.keys():
-						for val in client_file_data[column]:
-							if str(val) == "nan" or type(val).__name__ == dict3[column]:
-								column_pass_list.append(column)
-							else:
-								column_fail_list.append(column)
-								result_fail_list.append("the value "+ str(val) + " at row "+ str(i) + " in column "+str(column)+" doesn't match with datatype "+datatype_col[column])
-							i = i + 1
-
-				if len(set(column_pass_list)) == len(dict3.keys()):
-					line7 = {"Test name": "Data type", "Result": "Passed"}
-				elif len(client_file_data) == 0:
-					line7 = {"Test name": "Data type", "Result": "Failed", "Output": "File doesn't have any data"}
-				else:
-					line7 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
-
-				#check for special_characters
-				line8={}
-				pass_list3=[]
-				fail_list3=[]
-				result_fail_list3=[]
-				result_pass_list3=[]
-				if (client_file_name == "test_20170504.csv"):
-					for column in data_file_columns:
-						print(client_file_data.columns.values)
-						p=1
-						for val in client_file_data[column]:
-							if any(char in str(val) for char in ("~", "%", "*", "+", "&","\"","~","`","!","@","#","$","^","(",")","_","-","=","[","]","{","}",":",">",";","'",",","<","/","?")):
-								fail_list3.append(column)
-								result_fail_list3.append("special character " + str(val)+ " is found at row " + str(p) + " in " +  str(column))
-							else:
-								pass_list3.append(column)
-								#result_pass_list3.append("match"+str(val))
-							p = p + 1
-
-
-					if len(pass_list3)==len(client_file_data):
-						line8={"Test name":"Special_characters","Result":"Passed","Output":result_pass_list3}
-					else:
-						line8={"Test name":"Special_characters","Result":"Failed","Output":result_fail_list3}
-				else:
-					line8= {"Test name": "Special_characters",
-							 "Result": "No special characters are found in this file"}
-
-				# copying the file to passed or fail folder
-
-				if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed"and line7["Result"] == "Passed" and line8["Result"]=="Passed":
-					with open(text_file_pass+client_file_name, 'w') as f1:
-						for line in open(client_file):
-							f1.write(line)
-				else:
-					with open(text_file_fail+client_file_name, 'w') as f1:
-						for line in open(client_file):
-							f1.write(line)
-
-				# writing the output to the result file
-
-				final_lines_to_file = {"Test-1" : line1, "Test-2" : line2, "Test-3" : line3, "Test-4" : line4, "Test-5" : line5, "Test-6" : line6, "Test-7" : line7,"Test-8":line8}
-
-				# creating a json output file in result folder
-
-				with open(text_file_result, "w") as output:
-					json.dump(final_lines_to_file, output, indent=2)
-				output.close()
+				line2 = {"Test name": "Column order", "Result": "Failed",
+						 "Output": {"the expected column order is": list(def_col.values())},
+						 "but the partner file has these columns with wrong order": list(fail_list.values())}
 
 			else:
-				line = {"Output": "FileName is not present in Control File"}
-				final_lines_to_file = {"Scenario" : line}
-				with open(text_file_result, "w") as output:
-					json.dump(final_lines_to_file, output, indent=2)
-				output.close()
+				line2 = {"Test name": "Column order", "Result": "Passed"}
+
+			#checking for nulls
+
+			client_file_data_df = pd.DataFrame(client_file_data)
+			client_file_data_df.index=client_file_data_df.index+1
+			client_file_data_dff2 = client_file_data_df.isnull().stack()[lambda x: x].index.tolist()
+			if (client_file_data_df.isnull().sum().sum()):
+				dict1={}
+				output1 = client_file_data_dff2
+				for value,columns in output1:
+					if columns in dict1.keys():
+						b=dict1.get(columns)
+						b.append(value)
+						dict1[columns]=b
+					else:
+						y = []
+						y.append(value)
+						dict1[columns]=y
+				line3 = {"Test name": "Check for nulls", "Result": "Failed/Nulls are found",
+						 "Null values found in": str(dict1).replace('],',']],').replace('{','').replace('}','').replace("'","").split('],')}
+			else:
+				line3 = {"Test name": "Check for nulls", "Result": "Passed"}
+
+			# checking the empty rows
+
+			i = 1
+			matches = {}
+			empty_rows_list = []
+
+			file_extension = str(client_file_name.split('.')[1])
+
+			with open(client_file,'r') as out:
+				for line in out:
+					if line == '\n':
+						matches[i] = "matched"
+						matches.update(matches)
+					elif len(line) == 3:
+						matches[i] = "matched"
+						matches.update(matches)
+					else:
+						matches[i] = "not matched"
+						matches.update(matches)
+					i = i +1
+
+			key = list(matches.keys())
+			val = list(matches.values())
+			for i in range(len(val)):
+				if val[i] == "matched":
+					empty_rows_list.append("The file has empty row at "+str(key[i]))
+
+			if len(empty_rows_list) != 0:
+				line4 = {"Test name": "Empty Rows", "Result": "Failed", "Output": empty_rows_list}
+			else:
+				line4 = {"Test name": "Empty Rows", "Result": "Passed"}
+
+			# check for the data-types
+
+			json_def_data_columns_list_no_orderdict = (json_def_data_no_orderdict["columns"])
+			json_def_data_columns_list_index = (list(json_def_data_no_orderdict["columns"].index))
+
+			datatype_col = {}
+
+			result_fail_list, column_pass_list, column_fail_list = [], [], []
+
+			datatype_col_rename = {'INT' : 'int64', 'int' : 'int64', 'BIGINT' : 'int64', 'SMALLINT' : 'int64', 'NVARCHAR(50)' : 'str', 'CHAR(8)' : 'str', 'DECIMAL(18,2)' : 'float64' , 'BIT' : 'bool_',  'DECIMAL(18,4)' : 'float64', 'CHAR(2)' : 'str', 'VARCHAR(10)' : 'str', 'CHAR(1)' : 'str','VARCHAR(50)':'str', 'DATE' : 'date', 'NVARCHAR(3)' : 'str', 'NVARCHAR(500)' : 'str', 'NVARCHAR(100)' : 'str', 'NVARCHAR(250)' : 'str', 'NVARCHAR(255)' : 'str', 'NVARCHAR(255)' : 'str', 'NVARCHAR(25)' : 'str', 'NVARCHAR(3000)' : 'str', 'NVARCHAR(40)' : 'str', 'NVARCHAR(20)' : 'str', 'NVARCHAR(10)' : 'str', 'NVARCHAR(1000)' : 'str'}
+
+			for index, col in enumerate(json_def_data_columns_list_index):
+				datatype_col[col] = json_def_data_columns_list_no_orderdict[col]['dbtype']
+				datatype_col.update(datatype_col)
+
+
+			dict3 = {k:datatype_col_rename[v] for k,v in datatype_col.items()}
+			for column in client_file_data_columns_list:
+				if column in dict3.keys():
+					for val in client_file_data[column]:
+						if str(val) == "nan" or type(val).__name__ == dict3[column]:
+							column_pass_list.append(column)
+						else:
+							column_fail_list.append(column)
+							result_fail_list.append("the value "+ str(val) + " at row "+ str(i) + " in column "+str(column)+" doesn't match with datatype "+datatype_col[column])
+						i = i + 1
+
+			if len(set(column_pass_list)) == len(dict3.keys()):
+				line5 = {"Test name": "Data type", "Result": "Passed"}
+			elif len(client_file_data) == 0:
+				line5 = {"Test name": "Data type", "Result": "Failed", "Output": "File doesn't have any data"}
+			else:
+				line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
+
+			# Row count check
+
+			if client_file_name in list(row_count_file_data.index):
+
+				if int(row_count_file_data.xs(client_file_name)) != int(len(client_file_data)):
+					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "The partner file has "+str(int(row_count_file_data.xs(client_file_name)))+" rows but row count file has "+str(int(len(client_file_data)))}
+				else:
+					line6 = {"Test name": "Row count", "Result": "Passed"}
+
+			else:
+				line6 = {"Test name": "Row count", "Result": "Failed", "Output": "Filename not present in Row count file"}
+
+			# Summary data check
+
+			if client_file_name in list(summary_invalid_data['FileName']):
+				
+				if summary_invalid_data.ix(client_file_name)[0]['Aggregation-type'] == 'count':
+					if len(client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]) == int(summary_invalid_data.ix(client_file_name)[0]['Assertion-value']):
+						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has passed"}
+					else:
+						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has not passed the count assertion"}
+				else:
+					line7 = {"Test name": "Summary Data check", "Result": "Failed"}
+
+			else:
+				line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": "Filename not present in Summary Data File"}
+
+			#checking data formats
+
+			result_df_list, list_regex=[], []
+
+			for col in json_def_data_columns_list:
+				regex = json_def_data_columns[col]['data-format']
+				list_regex.append(regex)
+
+			for column in client_file_data_columns_list:
+				count = 0
+				i = (client_file_data_columns_list.index(column))
+				for row in client_file_data[column]:
+					count = count + 1
+					if list_regex[i] != "":
+						if row!="nan":
+							pattern = re.compile(list_regex[i],re.UNICODE)
+							if pattern.findall(str(row)):
+								line8 = {"Test name": "Data Formats", "Result": "Passed"}
+							else:
+								result_df_list.append("Data format is invalid at column-name:{}, row-number:{}, row-element:{}".format(column, count, row))
+								line8 = {"Test name": "Data Formats", "Result": "Failed", "Output":result_df_list}
+						else:
+							line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Nan's are found in this column "+column}
+					else:
+						line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Data format not defined for this column in the definition file"}
+
+			#checking duplicate values
+
+			# dup_result_list=[]
+			# with open(client_file) as f:
+			# 		seen = set()
+			# 		dups = set()
+			# 		num=0
+			# 		for line in f:
+			# 			num = num+1
+			# 			if line in seen:
+			# 				if line not in dups:
+			# 					dups.add(line)
+			# 					dup_result_list.append("Duplicate row is found in line "+str(num))
+
+			# 			else:
+			# 				seen.add(line)
+
+			# 		if(len(dups)>0):
+			# 			line7={"Test name": "Duplicate values", "Result": "Failed","Output":dup_result_list}
+			# 		else:
+			# 			line7={"Test name": "Duplicate values", "Result": "Passed"}
+
+			# copying the file to passed or fail folder
+
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" or len(client_file_data) == 0:
+
+				with open(text_file_pass + client_file_name, 'w') as f1:
+					for line in open(client_file):
+						f1.write(line)
+
+				# pass control file
+
+				pass_control_file_data.append(client_file_name + "|" + str(len(client_file_data)))
+
+			else:
+				with open(text_file_fail + client_file_name, 'w') as f1:
+					for line in open(client_file):
+						f1.write(line)
+
+				# failed control file
+
+				fail_control_file_data.append(client_file_name)
+
+			# writing the output to the result file
+
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8}
+
+			# creating a json output file in result folder
+
+			with open(text_file_result, "w") as output:
+				json.dump(final_lines_to_file, output, indent=4)
+			output.close()
+
+		if len(pass_control_file_data) != 0:
+			pass_control_file='PassControl_'+date+"_"+timestamp+'.txt'
+			with open(pass_fail_control_file+pass_control_file, 'w') as out:
+				out.write('Filename|Rowcount')
+				for line in pass_control_file_data:
+					out.write('\n'+line)
+
+		if len(fail_control_file_data) != 0:
+			fail_file='FailedFile_'+date+"_"+timestamp+'.txt'
+			with open(pass_fail_control_file+fail_file,'w') as out2:
+				out2.write('Filename')
+				for line in fail_control_file_data:
+					out2.write('\n'+line)
 
 		return final_lines_to_file

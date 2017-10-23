@@ -1,3 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-743831{20170504{login{New Device|EMail over 30 days|3DevicePerEmailWeek -Global|3DevicePerAccountNumberWeek|FlashImagesCookiesDisabled{low{64422
-743831{20170504{payment{New Device|EMail over 30 days|3DevicePerEmailWeek -Global|3DevicePerAccountNumberWeek|FlashImagesCookiesDisabled{low{64504

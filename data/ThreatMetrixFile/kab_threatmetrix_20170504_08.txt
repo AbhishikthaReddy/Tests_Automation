@@ -1,5 +1,0 @@
-AccountID{CreationDate{EventType{ReasonCode{RiskRating{CreationTime
-831480{20170504{account_creation{New Device|ImagesDisabled|FlashDisabled{low{85226
-825736{20170504{login{EMail over 30 days|ImagesDisabled|FlashDisabled{neutral{83733
-740436{20170504{login{EMail over 30 days|Good Local Long Term Customer|Good Global Long Term Customer|ImagesDisabled|FlashDisabled{neutral{83252
-739912{20170504{login{EMail over 30 days|Good Local Long Term Customer|Good Global Long Term Customer|ImagesDisabled|FlashDisabled{neutral{81725

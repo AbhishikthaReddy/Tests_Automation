@@ -20,7 +20,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     },
     "EventDate": {
       "order": "2",
@@ -31,7 +32,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "Date of event capture in Kabbage platform"
+      "description": "Date of event capture in Kabbage platform",
+      "data-format":"^(19|20)\\d\\d?[- \/.]?(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])$|^(0[1-9]|1[012])?[- \/.]?(0[1-9]|[12][0-9]|3[01])?[- \/.]?(19|20)\\d\\d$|^(0[1-9]|[12][0-9]|3[01])?[- \/.]?(0[1-9]|1[012])?[- \/.]?(19|20)\\d\\d$"
     },
     "EventTime": {
       "order": "3",
@@ -42,7 +44,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "Time of event capture in Kabbage platform"
+      "description": "Time of event capture in Kabbage platform",
+      "data-format":""
     },
     "EventTypeID": {
       "order": "4",
@@ -53,7 +56,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "Identifier which denotes the type of event fired"
+      "description": "Identifier which denotes the type of event fired",
+      "data-format":""
     },
     "NewValue": {
       "order": "5",
@@ -64,7 +68,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "For applicable events, the value captured"
+      "description": "For applicable events, the value captured",
+      "data-format":""
     },
     "OldValue": {
       "order": "6",
@@ -75,7 +80,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "For applicable events, the prior value before change"
+      "description": "For applicable events, the prior value before change",
+      "data-format":""
     },
    "EventID": {
      "order": "7",
@@ -86,7 +92,8 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "no",
-      "description": "Kabbage account identifier"
+      "description": "Kabbage account identifier",
+      "data-format":""
     }
   }
 }
