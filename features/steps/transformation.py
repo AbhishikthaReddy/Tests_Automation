@@ -192,33 +192,19 @@ class scenario(object):
 				line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
 
 			#checking duplicate values
-			dup_pass_list=[]
-			dup_fail_list=[]
-			dup_result_list=[]
-			num=0
-			with open(client_file) as f:
-					seen = set()
-					dups = set()
-					for line in f:
-						num=num+1
-						if line in seen:
-							if line not in dups:
-								dups.add(line)
-								dup_fail_list.append(dups)
-								dup_result_list.append("Duplicate row is found in line "+str(num))
+			result_dup_list=[]
+			dupff = client_file_data_df[client_file_data_df.duplicated(keep='first')]
+			row_number=dupff.index+1
+			if len(dupff)>0:
+				result_dup_list.append("Duplicate row is found in row number:"+str(row_number.tolist()))
+				line8 = {"Test name": "Duplicate values", "Result":"Failed","Output":result_dup_list}
+			else:
+				line8={"Test name":"Duplicate values", "Result":"Passed"}
 
-						else:
-							seen.add(line)
-							dup_pass_list.append(seen)
-
-					if(len(dups)>0):
-						line7={"Test name": "Duplicate values", "Result": "Failed","Output":dup_result_list}
-					else:
-						line7={"Test name": "Duplicate values", "Result": "Passed"}
 
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line7["Result"]=="Passed":
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line8["Result"]== "Passed":
 				with open(text_file_pass + client_file_name, 'w') as f1:
 					for line in open(client_file):
 						f1.write(line)
@@ -244,7 +230,7 @@ class scenario(object):
 
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5,"Test-7":line7}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5,"Test-8":line8}
 
 			# creating a json output file in result folder
 

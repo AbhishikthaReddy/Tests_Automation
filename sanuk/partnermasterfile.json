@@ -14,11 +14,6 @@
       "filename": "kab_portfolio",
       "filedeffile": "definition_data/PortfolioFileDefinition.json"
     },
-
-    "file3": {
-      "filename": "dfsample",
-      "filedeffile": "definition_data/DFSampleFileD.json"
-    }  ,
     "file4":
     {
       "filename": "kab_portfolio_projection",
@@ -78,11 +73,6 @@
     {
       "filename": "kab_account_phone",
       "filedeffile": "definition_data/AccountPhoneFileDefinition.json"
-    },
-    "file16":
-    {
-      "filename": "test2",
-      "filedeffile": "definition_data/Test2FileDefinition.json"
     }
 
   }
