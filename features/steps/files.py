@@ -1,4 +1,4 @@
-import pandas as pd, os
+import pandas as pd, os, re
 from dir_file import dir_create
 
 class retrieve_files(object):
@@ -13,13 +13,18 @@ class retrieve_files(object):
 			masterfile = pd.read_json(masterfile_loc)
 			control_def_file_loc = masterfile.controlfile.ix[0]
 			data_file_loc = masterfile.datafilelocation.ix[0]
-			# control_data_file = data_file_loc+"/"+"kab_control_"+date+".txt"
 			text_files = masterfile.files
 			datafiles_names = []
 			deffiles_names = []
 			data_files_all = os.listdir(data_file_loc+"/")
-			row_count_file = data_file_loc+"/kab_row_count_"+date+".txt"
-			summary_invalid_file = data_file_loc+"/kab_summary_data_"+date+".csv"
+			for file in data_files_all:
+				if re.search("kab_row_count_", file):
+					if re.search(date, file):
+						row_count_file = data_file_loc+"/"+file
+			for file in data_files_all:
+				if re.search("kab_summary_data_", file):
+					if re.search(date, file):
+						summary_invalid_file = data_file_loc+"/"+file
 
 			field_separator = masterfile.fieldseparator.ix[0]
 
