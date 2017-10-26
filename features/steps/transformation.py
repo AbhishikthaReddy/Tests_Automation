@@ -257,17 +257,27 @@ class scenario(object):
 		
 			# checking for invalid values
 
-			# if client_file_name in list(summary_invalid_data['FileName']):
-				
-			# 	for i in client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]:
-			# 		print((summary_invalid_data.ix(client_file_name)[0]['Invalid-values']).rsplit(",",0)[0])
+			valid_data_pass_list, valid_data_fail_list = [], []
 
-			# else:
-			# 	line7 = {"Test name": "Invalid-values check", "Result": "Failed", "Output": "Filename not present in Data File"}
+			if client_file_name in list(summary_invalid_data['FileName']):
+				
+				for i in client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]:
+					min_value = int(summary_invalid_data.ix(client_file_name)[0]['Invalid-values'].split(",")[0][1:])
+					max_value = int(summary_invalid_data.ix(client_file_name)[0]['Invalid-values'].split(",")[1][:-1])
+					if i in range(min_value, max_value):
+						valid_data_pass_list.append(i)
+					else:
+						valid_data_fail_list.append(i)
+						
+				
+				if len(valid_data_pass_list) == len(client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]):
+					line11 = {"Test name": "Invalid-values", "Result": "Passed"}
+				else:
+					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(valid_data_fail_list)+" are not in the defined range"}
 
 			# copying the file to passed or fail folder
 
-			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" and line9["Result"] == "Passed" and line10["Result"] == "Passed" or len(client_file_data) == 0:
+			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" and line9["Result"] == "Passed" and line10["Result"] == "Passed" and line11["Result"] == "Passed" or len(client_file_data) == 0:
 
 
 				with open(text_file_pass + client_file_name, 'w') as f1:
@@ -289,7 +299,7 @@ class scenario(object):
 
 			# writing the output to the result file
 
-			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8, "Test-9": line9, "Test-10": line10}
+			final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8, "Test-9": line9, "Test-10": line10, "Test-11": line11}
 
 			# creating a json output file in result folder
 
