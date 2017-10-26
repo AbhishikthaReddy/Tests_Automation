@@ -1,5 +1,5 @@
 
-Feature: To check the null values,column names,column order, empty rows and data-types
+Feature: Data validation testing
 
 @all
 Scenario: To check if the column names in partner file and definition file match
@@ -41,3 +41,7 @@ Scenario: duplicate values check for rows in a file
 @all
 Scenario: special characters check for data in a file
     Then  special characters check
+
+@all
+Scenario: invalid-values check for data in a file
+    Then  invalid-values check

@@ -251,10 +251,20 @@ class scenario(object):
 
 
 			if len(pass_list3) == len(client_file_data):
-				line10 = {"Test name": "Special_characters", "Result": "Passed"}
+				line10 = {"Test name": "Special characters", "Result": "Passed"}
 			else:
-				line10={"Test name": "Special_characters", "Result": "Failed","Output": result_fail_list1}
+				line10={"Test name": "Special characters", "Result": "Failed","Output": result_fail_list1}
 		
+			# checking for invalid values
+
+			# if client_file_name in list(summary_invalid_data['FileName']):
+				
+			# 	for i in client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]:
+			# 		print((summary_invalid_data.ix(client_file_name)[0]['Invalid-values']).rsplit(",",0)[0])
+
+			# else:
+			# 	line7 = {"Test name": "Invalid-values check", "Result": "Failed", "Output": "Filename not present in Data File"}
+
 			# copying the file to passed or fail folder
 
 			if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" and line9["Result"] == "Passed" and line10["Result"] == "Passed" or len(client_file_data) == 0:

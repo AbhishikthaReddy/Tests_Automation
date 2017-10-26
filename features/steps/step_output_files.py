@@ -65,6 +65,10 @@ def step_given_the_file(context):
 					def step_data_type_check(context):
 						pass
 
+					@then('invalid-values check')
+					def step_data_type_check(context):
+						pass
+
 				else:
 					print ("There are no files with the given timestamp")
 
@@ -105,6 +109,10 @@ def step_given_the_file(context):
 						assert context.text, "REQUIRE: correct data input"
 
 					@then('special characters check')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
+
+					@then('invalid-values check')
 					def step_data_type_check(context):
 						assert context.text, "REQUIRE: correct data input"
 
