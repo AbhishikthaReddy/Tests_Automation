@@ -45,10 +45,23 @@ def step_given_the_file(context):
 					def step_data_type_check(context):
 						pass
 
+					@then('row count check')
+					def step_data_type_check(context):
+						pass
+
+					@then('summary data check')
+					def step_data_type_check(context):
+						pass
+
 					@then('data formats')
 					def step_data_type_check(context):
 						pass
+
 					@then('duplicate values')
+					def step_data_type_check(context):
+						pass
+
+					@then('special characters check')
 					def step_data_type_check(context):
 						pass
 
@@ -75,13 +88,25 @@ def step_given_the_file(context):
 					def step_data_type_check(context):
 						assert context.text, "REQUIRE: correct data input"
 
-					@then('duplicate values')
+					@then('row count check')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
+
+					@then('summary data check')
 					def step_data_type_check(context):
 						assert context.text, "REQUIRE: correct data input"
 
 					@then('data formats')
 					def step_data_type_check(context):
 						assert context.text, "REQUIRE: corrent data input"
+
+					@then('duplicate values')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
+
+					@then('special characters check')
+					def step_data_type_check(context):
+						assert context.text, "REQUIRE: correct data input"
 
 			except TypeError as err:
 				print ("Error Message: "+str(err))

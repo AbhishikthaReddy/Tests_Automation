@@ -23,9 +23,21 @@ Scenario: data type check for columns in a file
     Then  data type check
 
 @all
+Scenario: row count check for columns in a file
+    Then  row count check
+
+@all
+Scenario: summary data check for provided columns
+    Then  summary data check
+
+@all
 Scenario: data type check for columns in a file
     Then  data formats
 
 @all
 Scenario: duplicate values check for rows in a file
     Then  duplicate values
+
+@all
+Scenario: special characters check for data in a file
+    Then  special characters check
