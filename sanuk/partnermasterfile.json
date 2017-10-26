@@ -80,12 +80,12 @@
       "filename": "kab_error",
       "filedeffile": "definition_data/ErrorsFileDefinition.json"
     },
-    "file16":
+    "file17":
     {
       "filename": "kab_key_official",
       "filedeffile": "definition_data/KeyOfficialsDefinition.json"
     },
-    "file17":
+    "file18":
     {
       "filename": "kab_threatmetrix",
       "filedeffile": "definition_data/ThreatMetrixFileDefinition.json"
