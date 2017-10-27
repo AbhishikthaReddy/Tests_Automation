@@ -274,6 +274,8 @@ class scenario(object):
 					line11 = {"Test name": "Invalid-values", "Result": "Passed"}
 				else:
 					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(valid_data_fail_list)+" are not in the defined range"}
+			else:
+				line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The FileName not present in data file"}
 
 			# copying the file to passed or fail folder
 
