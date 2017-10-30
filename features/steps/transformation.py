@@ -223,7 +223,7 @@ class scenario(object):
 						else:
 							line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Nan's are found in this column "+column}
 					else:
-						line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Data format not defined for this column in the definition file"}
+						line8 = {"Test name": "Data Formats", "Result": "Passed", "Output": "Data format not defined for this column in the definition file"}
 
 			#checking duplicate values
 
