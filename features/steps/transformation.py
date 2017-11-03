@@ -234,10 +234,10 @@ class scenario(object):
 						else:
 							fail_list_df.append("Data format is invalid at row:{},column:{}".format(str(row),column))
 					else:
-						fail_list_df.append("Data format is not defined for this column:{}".format(column))
+						pass_list_df.append("Data format is not defined for this column:{}".format(column))
 						break
 
-			if fail_list_df !=0:
+			if len(fail_list_df) > 0:
 				line8={"Test name": "Data Formats", "Result": "Failed","Output":fail_list_df}
 			else:
 				line8={"Test name": "Data Formats", "Result": "Passed"}
