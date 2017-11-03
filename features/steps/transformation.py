@@ -201,7 +201,7 @@ class scenario(object):
 			#checking data formats
 
 			pass_list_df, fail_list_df, result_df_list, list_regex=[], [], [], []
-			fail_list_df1=[]
+			pass_list_df1=[]
 
 			for col in json_def_data_columns_list:
 				regex = json_def_data_columns[col]['data-format']
@@ -223,13 +223,14 @@ class scenario(object):
 						else:
 							fail_list_df.append("Data format is invalid at row:{},column:{}".format(str(row),column))
 					else:
-						fail_list_df.append("Data format is not defined for this column:{}".format(column))
+						pass_list_df.append("Data format is not defined for this column:{}".format(column))
 						break
-
-			if fail_list_df !=0:
+						
+			if len(fail_list_df) > 0:
 				line8={"Test name": "Data Formats", "Result": "Failed","Output":fail_list_df}
 			else:
 				line8={"Test name": "Data Formats", "Result": "Passed"}
+
 
 			#checking duplicate values
 
