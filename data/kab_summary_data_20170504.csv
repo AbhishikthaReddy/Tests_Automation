@@ -5,3 +5,4 @@ kab_portfolio_transaction_20170504_154646.txt,LoanID,count,10,"[0, 5]"
 kab_portfolio_20170504_154646.txt,AccountID,count,10,"[0, 10]"
 kab_portfolio_projection_20170504_154646.txt,LoanID,count,10,"[0, 5]"
 kab_portfolio_20170504_153636.txt,LoanID,count,11,"[0, 6]"
+
