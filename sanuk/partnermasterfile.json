@@ -89,6 +89,11 @@
     {
       "filename": "kab_threatmetrix",
       "filedeffile": "definition_data/ThreatMetrixFileDefinition.json"
+    },
+    "file19":
+    {
+      "filename": "kab_sample",
+      "filedeffile": "definition_data/samplefiledef.json"
     }
   }
 }

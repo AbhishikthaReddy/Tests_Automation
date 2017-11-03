@@ -173,11 +173,10 @@ class scenario(object):
 				line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
 
 			# Row count check
+			if str(client_file_name) in list(row_count_file_data['FileName']):
 
-			if client_file_name in list(row_count_file_data.index):
-
-				if int(row_count_file_data.xs(client_file_name)) != int(len(client_file_data)):
-					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "The partner file has "+str(int(row_count_file_data.xs(client_file_name)))+" rows but row count file has "+str(int(len(client_file_data)))}
+				if int((row_count_file_data[row_count_file_data['FileName'] == client_file_name]['NumberOfRows'].iloc[0])) != int(len(client_file_data)):
+					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "The partner file has "+str(int(row_count_file_data.ix(client_file_name)[0]['NumberOfRows']))+" rows but row count file has "+str(int(len(client_file_data)))}
 				else:
 					line6 = {"Test name": "Row count", "Result": "Passed"}
 
