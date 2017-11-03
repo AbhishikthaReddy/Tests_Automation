@@ -192,9 +192,17 @@ class scenario(object):
 
 					if int(len(client_file_data[str(summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Column-names'].iloc[0])])) == int(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Assertion-value'].iloc[0]):
 
-						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+ str(summary_invalid_data[summary_invalid_data['Column-names'] == client_file_name]['Column-names'])+" column has passed"}
+						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+ str(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Column-names'].iloc[0])+" column has passed"}
 					else:
-						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+str(summary_invalid_data[summary_invalid_data['Column-names'] == client_file_name]['Column-names'])+" column has not passed the count assertion"}
+						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+str(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Column-names'].iloc[0])+" column has not passed the count assertion"}
+
+				elif summary_invalid_data.ix(client_file_name)[0]['Aggregation-type'] == 'sum':
+
+					if int(sum(client_file_data[str(summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Column-names'].iloc[0])])) == int(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Assertion-value'].iloc[0]):
+
+						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+ str(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Column-names'].iloc[0])+" column has passed"}
+					else:
+						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+str(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Column-names'].iloc[0])+" column has not passed the count assertion"}
 				else:
 					line7 = {"Test name": "Summary Data check", "Result": "Failed"}
 
@@ -274,6 +282,7 @@ class scenario(object):
 
 				invalid_values = invalid_values.split(",")
 				invalid_values_list, new_invalid_values_list = [], []
+				min_value, max_value = 0, 0
 
 				for i in invalid_values:
 					i = i.replace(" ", "")
@@ -293,7 +302,7 @@ class scenario(object):
 				data_to_be_check = list(client_file_data[str(summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Column-names'].iloc[0])])
 
 				for i in data_to_be_check:
-					if i in range(min_value, max_value):
+					if min_value > 0 and max_value > 0 and i in range(min_value, max_value):
 						range_fail_list.append(i)
 					else:
 						for j in new_invalid_values_list:
