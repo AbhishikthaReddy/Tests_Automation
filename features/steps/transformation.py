@@ -203,11 +203,13 @@ class scenario(object):
 
 			#checking data formats
 
-			result_df_list, list_regex=[], []
+			pass_list_df, fail_list_df, result_df_list, list_regex=[], [], [], []
+			fail_list_df1=[]
 
 			for col in json_def_data_columns_list:
 				regex = json_def_data_columns[col]['data-format']
 				list_regex.append(regex)
+
 
 			for column in client_file_data_columns_list:
 				count = 0
@@ -218,14 +220,19 @@ class scenario(object):
 						if row!="nan":
 							pattern = re.compile(list_regex[i],re.UNICODE)
 							if pattern.findall(str(row)):
-								line8 = {"Test name": "Data Formats", "Result": "Passed"}
+								pass_list_df.append(str(row))
 							else:
-								result_df_list.append("Data format is invalid at column-name:{}, row-number:{}, row-element:{}".format(column, count, row))
-								line8 = {"Test name": "Data Formats", "Result": "Failed", "Output":result_df_list}
+								fail_list_df.append("Data format is invalid at row:{},column:{}".format(str(row),column))
 						else:
-							line8 = {"Test name": "Data Formats", "Result": "Failed", "Output": "Nan's are found in this column "+column}
+							fail_list_df.append("Data format is invalid at row:{},column:{}".format(str(row),column))
 					else:
-						line8 = {"Test name": "Data Formats", "Result": "Passed", "Output": "Data format not defined for this column in the definition file"}
+						fail_list_df.append("Data format is not defined for this column:{}".format(column))
+						break
+
+			if fail_list_df !=0:
+				line8={"Test name": "Data Formats", "Result": "Failed","Output":fail_list_df}
+			else:
+				line8={"Test name": "Data Formats", "Result": "Passed"}
 
 			#checking duplicate values
 

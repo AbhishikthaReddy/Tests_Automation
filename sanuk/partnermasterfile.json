@@ -92,9 +92,11 @@
     },
     "file19":
     {
-      "filename": "kab_sample",
-      "filedeffile": "definition_data/samplefiledef.json"
+       "filename": "test",
+      "filedeffile": "definition_data/Test.json"
+
     }
+
   }
 }
 
