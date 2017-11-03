@@ -38,6 +38,6 @@ class retrieve_files(object):
 				if filename_master_json+"_"+date+"_"+timestamp+".csv" in data_files_all:
 					datafiles_names.append(data_file_loc+"/"+filename_master_json+"_"+date+"_"+timestamp+".csv")
 					deffiles_names.append(filedef_master_json)
-			return datafiles_names, deffiles_names, control_def_file_loc, row_count_file, summary_invalid_file, field_separator
+			return datafiles_names, deffiles_names, row_count_file, summary_invalid_file, field_separator
 		except:
 			print("MasterJSON File Not Found in the specified path")
