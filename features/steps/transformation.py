@@ -1,6 +1,7 @@
 import pandas as pd
 import re, json
 from collections import OrderedDict
+from random import choice
 
 class scenario(object):
 
@@ -153,7 +154,6 @@ class scenario(object):
 				datatype_col[col] = json_def_data_columns_list_no_orderdict[col]['dbtype']
 				datatype_col.update(datatype_col)
 
-
 			dict3 = {k:datatype_col_rename[v] for k,v in datatype_col.items()}
 			for column in client_file_data_columns_list:
 				if column in dict3.keys():
@@ -173,6 +173,7 @@ class scenario(object):
 				line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
 
 			# Row count check
+
 			if str(client_file_name) in list(row_count_file_data['FileName']):
 
 				if int((row_count_file_data[row_count_file_data['FileName'] == client_file_name]['NumberOfRows'].iloc[0])) != int(len(client_file_data)):
@@ -185,13 +186,15 @@ class scenario(object):
 
 			# Summary data check
 
-			if client_file_name in list(summary_invalid_data['FileName']):
-				
+			if str(client_file_name) in list(summary_invalid_data['FileName']):
+
 				if summary_invalid_data.ix(client_file_name)[0]['Aggregation-type'] == 'count':
-					if len(client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]) == int(summary_invalid_data.ix(client_file_name)[0]['Assertion-value']):
-						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has passed"}
+
+					if int(len(client_file_data[str(summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Column-names'].iloc[0])])) == int(summary_invalid_data[summary_invalid_data['FileName'] == client_file_name]['Assertion-value'].iloc[0]):
+
+						line7 = {"Test name": "Summary Data check", "Result": "Passed", "Output": client_file_name+" with "+ str(summary_invalid_data[summary_invalid_data['Column-names'] == client_file_name]['Column-names'])+" column has passed"}
 					else:
-						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+summary_invalid_data.ix(client_file_name)[0]['Column-names']+" column has not passed the count assertion"}
+						line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": client_file_name+" with "+str(summary_invalid_data[summary_invalid_data['Column-names'] == client_file_name]['Column-names'])+" column has not passed the count assertion"}
 				else:
 					line7 = {"Test name": "Summary Data check", "Result": "Failed"}
 
@@ -256,23 +259,47 @@ class scenario(object):
 		
 			# checking for invalid values
 
-			valid_data_pass_list, valid_data_fail_list = [], []
+			range_fail_list, values_fail_list = [], []
 
 			if client_file_name in list(summary_invalid_data['FileName']):
 				
-				for i in client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]:
-					min_value = int(summary_invalid_data.ix(client_file_name)[0]['Invalid-values'].split(",")[0][1:])
-					max_value = int(summary_invalid_data.ix(client_file_name)[0]['Invalid-values'].split(",")[1][:-1])
-					if i in range(min_value, max_value):
-						valid_data_pass_list.append(i)
+				invalid_values = summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Invalid-values'].iloc[0]
+
+				invalid_values = invalid_values.split(",")
+				invalid_values_list, new_invalid_values_list = [], []
+
+				for i in invalid_values:
+					i = i.replace(" ", "")
+					invalid_values_list.append(i)
+
+				for i in invalid_values_list:
+					if re.search("-", i):
+						min_value = int(i.split("-", 1)[0].split("[", 1)[1])
+						max_value = int(i.split("-", 1)[1].split(",", 1)[0])
+					elif re.search("]", i):
+						i = i.split("]", 1)[0]
+						new_invalid_values_list.append(int(i))
 					else:
-						valid_data_fail_list.append(i)
-						
-				
-				if len(valid_data_pass_list) == len(client_file_data[summary_invalid_data.ix(client_file_name)[0]['Column-names']]):
+						i = i.replace("[", "")
+						new_invalid_values_list.append(int(i))
+
+				data_to_be_check = list(client_file_data[str(summary_invalid_data[summary_invalid_data['FileName'] == str(client_file_name)]['Column-names'].iloc[0])])
+
+				for i in data_to_be_check:
+					if i in range(min_value, max_value):
+						range_fail_list.append(i)
+					else:
+						for j in new_invalid_values_list:
+							if i == j:
+								values_fail_list.append(i)
+
+
+				if len(range_fail_list) == 0 and len(values_fail_list) == 0:
 					line11 = {"Test name": "Invalid-values", "Result": "Passed"}
+				elif len(range_fail_list) > 0:
+					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(range_fail_list)+" are not in the defined range"}
 				else:
-					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(valid_data_fail_list)+" are not in the defined range"}
+					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(values_fail_list)+" exist in the partner file"}
 			else:
 				line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The FileName not present in data file"}
 
