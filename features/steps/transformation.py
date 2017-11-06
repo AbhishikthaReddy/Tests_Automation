@@ -366,5 +366,5 @@ class scenario(object):
 
 			return final_lines_to_file
 
-		except err as Exception:
+		except Exception as err:
 			print("Encountered error: "+err)
