@@ -92,11 +92,23 @@
     },
     "file19":
     {
-       "filename": "kab_sample",
-      "filedeffile": "definition_data/samplefiledef.json"
-
+       "filename": "kab_sample1",
+      "filedeffile": "definition_data/SampleFileDefinition.json"
+    },
+    "file20":
+    {
+       "filename": "kab_emptyrow",
+      "filedeffile": "definition_data/SampleFileDefinition.json"
+    },
+    "file21":
+    {
+      "filename": "kab_duplicatevalues",
+      "filedeffile": "definition_data/SampleFileDefinition.json"
+    },
+    "file22":
+    {
+      "filename": "kab_datatype",
+      "filedeffile": "definition_data/SampleFileDefinition.json"
     }
-
   }
 }
-

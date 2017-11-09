@@ -1,0 +1,6 @@
+AccountID,LoanID,PostedTransactionID,ReversalTransactionID,TransactionReversalFlag,AmountAppliedToLoan,PrincipalPaymentApplied,FeePaymentApplied,FeeApplied,PaymentApplied,AdvanceApplied,PrincipalAmountAppliedToLoan,FeeAmountAppliedToLoan,NSFFeeAmountAppliedToLoan,LateFeeAmountAppliedToLoan,InterestAmountAppliedToLoan,TransactionAmount,TransactionCode,HexPostedTransactionID
+743831,715055,3060229,,FALSE,-1033.34,-733.34,-300,0,-1033.34,0,-733.34,-300,0,0,0,-1446.68,6507,002EB205
+743831,719848,3060229,,FALSE,-413.34,-233.34,-180,0,-413.34,0,-233.34,-180,0,0,0,-1446.68,6507,002EB205
+745918,721533,845128119,,FALSE,78,0,0,78,0,0,0,78,0,0,0,78,6590,325FA1B7
+779823,815386,3061301,,FALSE,500,0,0,0,0,500,500,0,0,0,0,500,6625,002EB635
+779823,815386,844745277,,FALSE,25,0,0,25,0,0,0,25,0,0,0,25,6590,3259CA3D

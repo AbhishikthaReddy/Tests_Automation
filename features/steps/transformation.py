@@ -1,5 +1,5 @@
 import pandas as pd
-import re, json
+import re, json, csv
 from collections import OrderedDict
 
 class scenario(object):
@@ -44,7 +44,7 @@ class scenario(object):
 
 				# column names validation
 
-				client_file_data_columns_list = (list(client_file_data.columns))
+				client_file_data_columns_list = list(client_file_data.columns)
 				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
 				json_def_data_columns_list = (list(json_def_data["columns"]))
 				json_def_data_columns_list_case_sensitive = [i.lower() for i in json_def_data_columns_list]
@@ -111,10 +111,12 @@ class scenario(object):
 				i = 1
 				matches = {}
 				empty_rows_list = []
-
 				with open(client_file,'r') as out:
 					for line in out:
 						if line == '\n':
+							matches[i] = "matched"
+							matches.update(matches)
+						elif ''.join(line.split(',')).strip() == '':
 							matches[i] = "matched"
 							matches.update(matches)
 						elif len(line) == 3:
