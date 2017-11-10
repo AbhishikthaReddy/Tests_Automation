@@ -1,0 +1,1 @@
+AccountID{ExternalSourceID{AccountVerificationMatch{AccountOwnerMatch{CompanyTypeMatch{RegistrationNumberMatch{PersonalDetailsScore{PersonalAddressScore{CompanyNameScore{CompanyNameAndAddressScore{VerificationDate{VerificationTime

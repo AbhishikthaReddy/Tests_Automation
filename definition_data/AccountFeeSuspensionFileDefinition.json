@@ -1,0 +1,64 @@
+{
+  "filename": "Account Fee Suspension",
+  "filenameformat" : "kab_account_fee_suspension_yyyymmdd.txt",
+  "decimalseparator" : ".",
+  "fieldseparator": "{",
+  "dateformat": "YYYYMMDD",
+  "timeformat": "HHMMSS",
+  "availability": "Daily",
+  "encrypted": "No",
+  "fullorincremental": "Full (active suspensions)",
+  "description": "",
+
+  "columns": {
+    "AccountID": {
+      "order": "1",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage account identifier",
+      "data-format":""
+    },
+    "FeeSuspensionStart": {
+      "order": "2",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Beginning date when fee assessment is paused for an account",
+      "data-format":""
+    },
+    "FeeSuspensionEnd": {
+      "order": "3",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "Yes",
+      "description": "Ending date when fee assessment is paused for an account",
+      "data-format":""
+    },
+    "FeeSuspensionStatus": {
+      "order": "4",
+      "dbtype": "NVARCHAR(50)",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "",
+      "description": "Denotes whether fee suspension is open or closed",
+      "data-format":""
+    }
+  }
+}
+  

@@ -1,0 +1,27 @@
+{
+  "filename": "Model Control file",
+  "filenameformat" : "kab_model_control_yyyymmdd.txt",
+  "decimalseparator" : ".",
+  "fieldseparator": "{",
+  "dateformat": "YYYYMMDD",
+  "timeformat": "HHMMSS",
+  "availability": "Daily",
+  "encrypted": "No",
+  "fullorincremental": "Incremental",
+  "description": "",
+
+  "columns": {
+    "NumberOfFiles": {
+      "order": "1",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Number of model files sent",
+      "data-format":""
+    }
+  }
+}

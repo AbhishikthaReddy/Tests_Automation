@@ -1,0 +1,1 @@
+AccountID{PromiseDate{PromiseAmount{BillingCycle{DaysDelinquent{PaymentDueDate{RemainingAmount{PromiseStatus{ScheduleStatus{Collector{PaidAmountAsOfRunDate{DelqStatusAtPromiseTaken{DelqStatusAtPromiseKept{CurrentBalanceAtPromiseTaken

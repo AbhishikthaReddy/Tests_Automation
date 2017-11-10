@@ -1,0 +1,124 @@
+{
+  "filename": "External Sources",
+  "filenameformat" : "kab_external_sources_yyyymmdd.txt",
+  "decimalseparator" : ".",
+  "fieldseparator": "{",
+  "dateformat": "YYYYMMDD",
+  "timeformat": "HHMMSS",
+  "availability": "Daily",
+  "encrypted": "No",
+  "fullorincremental": "Full",
+  "description": "",
+
+  "columns": {
+    "AccountID": {
+      "order": "1",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage account identifier",
+      "data-format":""
+    },
+    "SourceTypeID": {
+      "order": "2",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Code of the external source",
+      "data-format":""
+    },
+    "SourceDate": {
+      "order": "3",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Date data channel was added or modified",
+      "data-format":""
+    },
+    "SourceTime": {
+      "order": "4",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Time data channel was added or modified",
+      "data-format":""
+    },
+    "StatusID": {
+      "order": "5",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Identifier of the current status of external source",
+      "data-format":""
+    },
+    "HasNoErrors": {
+      "order": "6",
+      "dbtype": "BIT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Flag denoting whether the external source analysis has errors",
+      "data-format":""
+    },
+   "ExternalSourceID": {
+     "order": "7",
+     "dbtype": "INT",
+     "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage source account identifier",
+      "data-format":""
+    },
+    "HasDDInstruction": {
+     "order": "8",
+     "dbtype": "BIT",
+     "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Denotes whether a direct debit bureau instruction exists for the source",
+      "data-format":""
+    },
+    "HexExternalSourceID": {
+     "order": "9",
+     "dbtype": "CHAR(8)",
+     "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "ExternalSourceID in hex format.",
+      "data-format":""
+    }
+      
+  }
+}

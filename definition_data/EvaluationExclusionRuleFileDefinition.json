@@ -1,0 +1,64 @@
+{
+  "filename": "Evaluation Exclusion Rule file",
+  "filenameformat" : "kab_account_exclusion_rule_yyyymmdd.txt",
+  "decimalseparator" : ".",
+  "fieldseparator": "{",
+  "dateformat": "YYYYMMDD",
+  "timeformat": "HHMMSS",
+  "availability": "Daily",
+  "encrypted": "No",
+  "fullorincremental": "Incremental",
+  "description": "",
+
+  "columns": {
+    "AccountID": {
+      "order": "1",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage account identifier",
+      "data-format":""
+    },
+    "EvaluationID": {
+      "order": "2",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Kabbage evaluation identifier",
+      "data-format":""
+    },
+    "RuleCodeID": {
+      "order": "3",
+      "dbtype": "INT",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",   
+      "allowedcharacters": "",
+      "allowempty": "No",
+      "description": "Code of the knockout rule fired during evaluation",
+      "data-format":""
+    },
+    "ExclusionMessage": {
+      "order": "4",
+      "dbtype": "NVARCHAR(255)",
+      "minvalue" : "",
+      "maxvalue": "",
+      "maxlength": "",
+      "validvalues": "",
+      "allowedcharacters": "",
+      "allowempty": "Yes",
+      "description": "Additional information regarding exclusion",
+      "data-format":""
+    }
+  }
+}
+  

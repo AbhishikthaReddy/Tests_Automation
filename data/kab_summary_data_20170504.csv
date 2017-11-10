@@ -1,0 +1,8 @@
+FileName,Column-names,Aggregation-type,Assertion-value,Invalid-values
+kab_portfolio_transaction_20170504_154646.txt,AccountID,count,10,"[0-10, 3, 5 10]"
+kab_portfolio_transaction_20170504_154646.txt,TransactionAmount,sum,500,"[100-200, 1000, 1001, 1002]"
+kab_portfolio_transaction_20170504_154646.txt,LoanID,count,10,"[0-5, 10, 20, 100]"
+kab_portfolio_20170504_154646.txt,AccountID,count,10,"[0-10, 101, 102, 104]"
+kab_portfolio_projection_20170504_154646.txt,LoanID,count,10,"[0, 5]"
+kab_portfolio_20170504_153636.txt,LoanID,sum,11,"[0, 6]"
+kab_sample1_20170504_153636.csv,AccountID,count,4,"[100-200, 1000, 1001, 1002]"

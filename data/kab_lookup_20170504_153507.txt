@@ -1,0 +1,359 @@
+LookupTableName{ColumnName{ID{Value
+ClusterTypes{ClusterTypeID{1{SanUK
+ClusterTypes{ClusterTypeID{-100{Unknown
+CustomerPortfolio{CustomerPortfolioID{KBG{Kabbage
+CustomerPortfolio{CustomerPortfolioID{NA{Not Applicable
+CustomerPortfolio{CustomerPortfolioID{san{santanderUK
+ErrorTypes{ErrorTypeID{1{Error: CommunicationError
+ErrorTypes{ErrorTypeID{10{Locked: NeedsToViewPromotion
+ErrorTypes{ErrorTypeID{-100{Unknown
+ErrorTypes{ErrorTypeID{11{Locked: NewTermsRequired
+ErrorTypes{ErrorTypeID{12{Locked: Suspended
+ErrorTypes{ErrorTypeID{13{Unauthorized: Expired
+ErrorTypes{ErrorTypeID{14{Unauthorized: ForcedDisconnect
+ErrorTypes{ErrorTypeID{15{Unauthorized: Revoked
+ErrorTypes{ErrorTypeID{16{Unauthorized: Unauthorized
+ErrorTypes{ErrorTypeID{17{Validation: YodleeNameMismatch
+ErrorTypes{ErrorTypeID{18{Block Cash Access: Other
+ErrorTypes{ErrorTypeID{19{Block Qualification: QualificationBlocked
+ErrorTypes{ErrorTypeID{2{Error: DatabaseError
+ErrorTypes{ErrorTypeID{20{Account Management: Pending Bankruptcy
+ErrorTypes{ErrorTypeID{21{Underwriting: Manual Underwriting
+ErrorTypes{ErrorTypeID{22{Block Cash Access: Pending eCheck
+ErrorTypes{ErrorTypeID{23{Autopay: Disable Autopay
+ErrorTypes{ErrorTypeID{24{Block Cash Access: Disable Autopay
+ErrorTypes{ErrorTypeID{25{Block Cash Access: Pending Bankruptcy
+ErrorTypes{ErrorTypeID{26{Block Cash Access: Insufficient 3P Balance
+ErrorTypes{ErrorTypeID{27{Account Management: Invalid Email Address
+ErrorTypes{ErrorTypeID{28{Block Cash Access: Fraud NCA
+ErrorTypes{ErrorTypeID{29{Block Cash Access: Suspicious Activity
+ErrorTypes{ErrorTypeID{3{Error: Exception
+ErrorTypes{ErrorTypeID{30{Block Cash Access: Suspicious or Fraudulent Activity
+ErrorTypes{ErrorTypeID{31{Block Cash Access: Inappropriate use of Multiple Accounts
+ErrorTypes{ErrorTypeID{32{Block Cash Access: Invalid Banking Information
+ErrorTypes{ErrorTypeID{33{Block Cash Access: Unauthorized Transactions
+ErrorTypes{ErrorTypeID{34{Block Cash Access: Excessive NSF
+ErrorTypes{ErrorTypeID{35{Block Cash Access: Zero Revenue Kill
+ErrorTypes{ErrorTypeID{36{Block Cash Access: Account Management
+ErrorTypes{ErrorTypeID{37{Block Cash Access: Stopped Payment
+ErrorTypes{ErrorTypeID{38{Block Cash Access: ETP Customer
+ErrorTypes{ErrorTypeID{39{Block Cash Access: Settlement
+ErrorTypes{ErrorTypeID{4{Error: InvalidAch
+ErrorTypes{ErrorTypeID{40{Block Cash Access: Nsf Blocking
+ErrorTypes{ErrorTypeID{41{Block Cash Access: Off AutoPay
+ErrorTypes{ErrorTypeID{42{Invalid ACH: Invalid ACH
+ErrorTypes{ErrorTypeID{43{InvalidForAdvances: InvalidDebitCard
+ErrorTypes{ErrorTypeID{44{Autopay: Disable EChecks
+ErrorTypes{ErrorTypeID{45{Autopay: Override Bad EChecks
+ErrorTypes{ErrorTypeID{46{Reapply Hold: High Early Loan Payoff
+ErrorTypes{ErrorTypeID{47{AccountClosed: ClosedByCustomer
+ErrorTypes{ErrorTypeID{48{Underwriting: AnalyticsAdjustments
+ErrorTypes{ErrorTypeID{5{Incomplete: ClosedAccount
+ErrorTypes{ErrorTypeID{6{Incomplete: MissingLink
+ErrorTypes{ErrorTypeID{7{Incomplete: NeedsPostAuth
+ErrorTypes{ErrorTypeID{8{InvalidForAdvances: NeedsRtnAndAba
+ErrorTypes{ErrorTypeID{9{Locked: NeedsInformationUpdate
+EvaluationCodes{CustomerTypeID{-100{Unknown
+EvaluationReasonCodes{EvaluationReason{CA{Customer added channel
+EvaluationReasonCodes{EvaluationReason{CR{Channel Refreshed
+EvaluationReasonCodes{EvaluationReason{NB{Nightly batch
+EvaluationResultCodes{EvaluationResult{A{Accept
+EvaluationResultCodes{EvaluationResult{D{Decline
+EvaluationResultCodes{EvaluationResult{E{Error
+EvaluationResultCodes{EvaluationResult{N{NotAccept
+EventCodes{EventTypeID{1{OnLogInAs
+EventCodes{EventTypeID{10{OnPaymentCompleted
+EventCodes{EventTypeID{-100{Unknown
+EventCodes{EventTypeID{11{OnChannelRefreshed
+EventCodes{EventTypeID{12{OnChangeAutoPay
+EventCodes{EventTypeID{13{OnChangeOverrideBadEcheck
+EventCodes{EventTypeID{14{OnQualified
+EventCodes{EventTypeID{15{OnApplicationSubmitted
+EventCodes{EventTypeID{16{OnChangeCreditLimit
+EventCodes{EventTypeID{17{OnDefaultPaymentAccountUpdated
+EventCodes{EventTypeID{18{OnChannelDeleted
+EventCodes{EventTypeID{19{OnPasswordReset
+EventCodes{EventTypeID{2{OnChannelAdded
+EventCodes{EventTypeID{20{OnEmailUpdated
+EventCodes{EventTypeID{21{OnUserFlagDeleted
+EventCodes{EventTypeID{22{OnUserFlagAdded
+EventCodes{EventTypeID{23{OnApplicationExceptionCleared
+EventCodes{EventTypeID{24{OnPersonalInfoUpdated
+EventCodes{EventTypeID{25{OnBusinessInfoUpdated
+EventCodes{EventTypeID{26{OnPaymentRetried
+EventCodes{EventTypeID{27{OnManualUnderwritingCompleted
+EventCodes{EventTypeID{28{OnPaymentReversed
+EventCodes{EventTypeID{29{OnSignUp
+EventCodes{EventTypeID{3{OnAdvanceBegin
+EventCodes{EventTypeID{30{OnLogOn
+EventCodes{EventTypeID{31{OnAvailableCashCalculated
+EventCodes{EventTypeID{32{OnFundingTransactionStatusChanged
+EventCodes{EventTypeID{33{OnDisbursementInitialized
+EventCodes{EventTypeID{34{OnChannelUpdated
+EventCodes{EventTypeID{35{OnDashboardUpdateCreditConsent
+EventCodes{EventTypeID{36{OnManualPaymentBegin
+EventCodes{EventTypeID{37{OnManualPaymentCompleted
+EventCodes{EventTypeID{38{OnSSNCleared
+EventCodes{EventTypeID{39{OnLoanConversionBegin
+EventCodes{EventTypeID{4{OnPPPCreated
+EventCodes{EventTypeID{40{OnLoanConversionEnd
+EventCodes{EventTypeID{41{OnManualIavSet
+EventCodes{EventTypeID{42{OnChannelAddFail
+EventCodes{EventTypeID{43{OnAdminTestingModified
+EventCodes{EventTypeID{44{OnSsnUpdated
+EventCodes{EventTypeID{45{OnVerifiedStatusChanged
+EventCodes{EventTypeID{46{OnStagingFactorUpdated
+EventCodes{EventTypeID{47{OnProductChanged
+EventCodes{EventTypeID{48{OnTermsUpdated
+EventCodes{EventTypeID{49{OnDisbursementReversed
+EventCodes{EventTypeID{5{OnAdvanceCompleted
+EventCodes{EventTypeID{50{OnPolicyConsent
+EventCodes{EventTypeID{51{OnPrequalified
+EventCodes{EventTypeID{52{OnOfferAccepted
+EventCodes{EventTypeID{53{OnAutoKdvVerified
+EventCodes{EventTypeID{54{OnScheduledPaymentScheduled
+EventCodes{EventTypeID{55{OnScheduledPaymentBegin
+EventCodes{EventTypeID{56{OnChannelAccountStatusChanged
+EventCodes{EventTypeID{57{OnScheduledPaymentCompleted
+EventCodes{EventTypeID{58{OnScheduledPaymentCancelled
+EventCodes{EventTypeID{59{OnDuplicateBankLogin
+EventCodes{EventTypeID{6{OnSubmitApp
+EventCodes{EventTypeID{60{OnLockoutAccount
+EventCodes{EventTypeID{61{OnSendBillingAgreementEmail
+EventCodes{EventTypeID{62{OnUnlockAccount
+EventCodes{EventTypeID{63{OnAccountClosed
+EventCodes{EventTypeID{64{OnUpdateDisabledECheckSettings
+EventCodes{EventTypeID{65{OnAccountReopened
+EventCodes{EventTypeID{66{OnRoutingAndAccountNumbersUpdated
+EventCodes{EventTypeID{67{OnDdiUnknownVerification
+EventCodes{EventTypeID{68{OnDdiUpdatedInformation
+EventCodes{EventTypeID{69{OnLastAdvanceDateCleared
+EventCodes{EventTypeID{7{OnChangeUnderwritingLine
+EventCodes{EventTypeID{70{DuplicateRoutingAccountNumber
+EventCodes{EventTypeID{8{OnChangeUnderwritingFee
+EventCodes{EventTypeID{9{OnPaymentBegin
+EventSourceSystemCodes{SourceSystem{D{Data Service
+EventSourceSystemCodes{SourceSystem{F{Funding Service
+ExclusionCodes{RuleCodeID{1{YodleeNameMismatch
+ExclusionCodes{RuleCodeID{100{AccountDelinquentOrDefaultInLast6Months
+ExclusionCodes{RuleCodeID{-100{Unknown
+ExclusionCodes{RuleCodeID{101{BelowAffordabilityThreshold
+ExclusionCodes{RuleCodeID{102{BelowMinimumDelphiScore
+ExclusionCodes{RuleCodeID{103{BelowMinimumDirectorAge
+ExclusionCodes{RuleCodeID{104{BelowMinimumLineOffered
+ExclusionCodes{RuleCodeID{105{BelowMinimumMonthInBusiness
+ExclusionCodes{RuleCodeID{106{CompanyDissolved
+ExclusionCodes{RuleCodeID{107{CompanyEIDFailure
+ExclusionCodes{RuleCodeID{108{Credit Report Pended - CIFAS record
+ExclusionCodes{RuleCodeID{109{CreditSearchesInL6M>=24
+ExclusionCodes{RuleCodeID{110{DeclinationsExist - AdverseCredit
+ExclusionCodes{RuleCodeID{111{DeclinationsExist - Santander PreBureau
+ExclusionCodes{RuleCodeID{112{DelinquentOrDefaultAccount
+ExclusionCodes{RuleCodeID{113{Director Not Verified
+ExclusionCodes{RuleCodeID{114{DirectorCAISatCurrentAddressPassFailed
+ExclusionCodes{RuleCodeID{115{DisqualifiedDirector
+ExclusionCodes{RuleCodeID{116{FraudDeceased
+ExclusionCodes{RuleCodeID{117{Funding Failed - Billing Table is Not Associated with Product
+ExclusionCodes{RuleCodeID{118{Funding Failed - Invalid Billing Table
+ExclusionCodes{RuleCodeID{119{InvalidCreditBureauReport
+ExclusionCodes{RuleCodeID{120{KeyOfficialEIDFailure
+ExclusionCodes{RuleCodeID{121{NonFavourableIndustryType
+ExclusionCodes{RuleCodeID{122{ReferedForNoticeOfCorrection
+ExclusionCodes{RuleCodeID{123{Registered Company Address Not Verified
+ExclusionCodes{RuleCodeID{124{Registered Name Not Verified
+ExclusionCodes{RuleCodeID{125{Shareholder Not Verified
+ExclusionCodes{RuleCodeID{126{Credit Report Pended - CIFAS
+ExclusionCodes{RuleCodeID{127{Credit Report Pended - NOC
+ExclusionCodes{RuleCodeID{128{ComplexCompanyStructure
+ExclusionCodes{RuleCodeID{24{Credit Report Decline
+ExclusionCodes{RuleCodeID{25{Credit Report Ineligible
+ExclusionCodes{RuleCodeID{26{DeclinationsExist
+ExclusionCodes{RuleCodeID{27{Fraud Model
+ExclusionCodes{RuleCodeID{29{BlockQualification
+ExclusionCodes{RuleCodeID{30{Communication Error
+ExclusionCodes{RuleCodeID{31{Credit Consent Missing
+ExclusionCodes{RuleCodeID{32{Credit Data Incomplete or Not Accepted
+ExclusionCodes{RuleCodeID{33{Credit Report Duplicate
+ExclusionCodes{RuleCodeID{34{Credit Report Error
+ExclusionCodes{RuleCodeID{35{Credit Report Invalid
+ExclusionCodes{RuleCodeID{36{Credit Score Invalid
+ExclusionCodes{RuleCodeID{37{Funding Failed
+ExclusionCodes{RuleCodeID{38{Kabbage Provider Missing
+ExclusionCodes{RuleCodeID{39{No Trace From Credit Bureau
+ExclusionCodes{RuleCodeID{43{User Already Exists In System Of Record
+ExclusionCodes{RuleCodeID{46{Address Mismatch
+ExclusionCodes{RuleCodeID{49{Credit Report Pended
+ExclusionCodes{RuleCodeID{50{Duplicate Account Information
+ExclusionCodes{RuleCodeID{53{Invalid Registration Number
+ExclusionCodes{RuleCodeID{54{No Hit
+ExclusionCodes{RuleCodeID{56{Sira Hit
+ExclusionCodes{RuleCodeID{57{ThreatMetrix Threshold
+ExclusionCodes{RuleCodeID{58{Underwriting Failed
+ExclusionCodes{RuleCodeID{66{CompanySanctionsListFailed
+ExclusionCodes{RuleCodeID{67{KeyOfficialsSanctionsListFailed
+ExternalSourceCodes{SourceTypeID{0{Santander
+ExternalSourceCodes{SourceTypeID{1{AA Savings (UK) - Bank
+ExternalSourceCodes{SourceTypeID{10{Allied Irish Business Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{100{Santander Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{-100{Unknown
+ExternalSourceCodes{SourceTypeID{101{Santander Business New (UK) - Bank
+ExternalSourceCodes{SourceTypeID{102{Santander Corporate Banking (UK)
+ExternalSourceCodes{SourceTypeID{103{Santander Mobile (UK) - Bank
+ExternalSourceCodes{SourceTypeID{104{Santander Private Banking (UK)
+ExternalSourceCodes{SourceTypeID{105{Scottish Widows Bank (UK)
+ExternalSourceCodes{SourceTypeID{106{Skipton Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{107{Smile (UK) - Bank
+ExternalSourceCodes{SourceTypeID{108{St James's Place Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{109{Standard Chartered Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{11{Bank of Ireland (UK) - Bank
+ExternalSourceCodes{SourceTypeID{110{Standard Chartered Private Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{111{Standard Life (UK) - Bank
+ExternalSourceCodes{SourceTypeID{112{State Bank Of India (UK) - Bank
+ExternalSourceCodes{SourceTypeID{113{Tesco Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{114{TestSite for InvestmentStatic
+ExternalSourceCodes{SourceTypeID{115{The Co-operative Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{116{The Co-operative Bank Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{117{The One Account (UK) - Bank
+ExternalSourceCodes{SourceTypeID{118{Think Money (UK) - Bank
+ExternalSourceCodes{SourceTypeID{119{TSB (UK) - Bank
+ExternalSourceCodes{SourceTypeID{12{Bank of Scotland (Cust. without Token) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{120{TSB Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{121{Ulster Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{122{Ulster Business Bank (UK)
+ExternalSourceCodes{SourceTypeID{123{United Savings & Loans (UK) - Bank
+ExternalSourceCodes{SourceTypeID{124{Virgin Money (Northern Rock) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{125{West Bromwich BS (UK) - Bank
+ExternalSourceCodes{SourceTypeID{126{West End Bank
+ExternalSourceCodes{SourceTypeID{127{Yorkshire Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{128{Yorkshire Bank Offshore Business (UK)
+ExternalSourceCodes{SourceTypeID{129{Yorkshire Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{13{Bank of Scotland Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{130{NatWest Bank (UK)
+ExternalSourceCodes{SourceTypeID{131{NatWest Bank Business Bankline (UK) - Bank
+ExternalSourceCodes{SourceTypeID{132{Santander Business Banking (UK) - Bank
+ExternalSourceCodes{SourceTypeID{14{Bank of Scotland Corporate Banking (UK)
+ExternalSourceCodes{SourceTypeID{15{Bank of Scotland Mobile (UK) - Bank
+ExternalSourceCodes{SourceTypeID{16{Barclays (UK) - Bank
+ExternalSourceCodes{SourceTypeID{17{Barclays International Banking (UK)
+ExternalSourceCodes{SourceTypeID{18{Barnsley Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{19{BM Savings (UK) - Bank
+ExternalSourceCodes{SourceTypeID{2{Adam & Company (UK) - Bank
+ExternalSourceCodes{SourceTypeID{20{Britannia (UK) - Bank
+ExternalSourceCodes{SourceTypeID{21{Cahoot (UK) - Bank
+ExternalSourceCodes{SourceTypeID{22{Cash Plus (UK) - Bank
+ExternalSourceCodes{SourceTypeID{23{Cater Allen Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{24{Cater Allen Personal Banking (UK)
+ExternalSourceCodes{SourceTypeID{25{Chelsea Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{26{Citibank (UK)
+ExternalSourceCodes{SourceTypeID{27{Clydesdale Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{28{Clydesdale Business Online (UK) - Bank
+ExternalSourceCodes{SourceTypeID{29{Coutts (UK) - Bank
+ExternalSourceCodes{SourceTypeID{3{AdvisorTestSiteforDummyCard
+ExternalSourceCodes{SourceTypeID{30{Coventry Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{31{Cumberland BS (UK) - Bank
+ExternalSourceCodes{SourceTypeID{32{Custom (Prepop Debit Cards) - Bank
+ExternalSourceCodes{SourceTypeID{33{Custom Bank - Bank
+ExternalSourceCodes{SourceTypeID{34{DagBankFormField4 - Bank
+ExternalSourceCodes{SourceTypeID{35{DagBills - Telephone Bills
+ExternalSourceCodes{SourceTypeID{36{DagBank
+ExternalSourceCodes{SourceTypeID{36{DagCreditcard
+ExternalSourceCodes{SourceTypeID{37{AmazonMWS
+ExternalSourceCodes{SourceTypeID{37{DagInsurance
+ExternalSourceCodes{SourceTypeID{38{DagLoan
+ExternalSourceCodes{SourceTypeID{38{Stripe
+ExternalSourceCodes{SourceTypeID{39{DagMiles
+ExternalSourceCodes{SourceTypeID{39{Shopify
+ExternalSourceCodes{SourceTypeID{4{AdvisorTestSiteforDummyInsurance
+ExternalSourceCodes{SourceTypeID{40{DagBankSeCUrityQA - Bank
+ExternalSourceCodes{SourceTypeID{40{Danske Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{41{Danske Bank Business (UK) - Bank
+ExternalSourceCodes{SourceTypeID{41{Yahoo
+ExternalSourceCodes{SourceTypeID{42{Dummy - Bank
+ExternalSourceCodes{SourceTypeID{42{Etsy
+ExternalSourceCodes{SourceTypeID{43{First Alliance Bank
+ExternalSourceCodes{SourceTypeID{43{GoogleAnalytics
+ExternalSourceCodes{SourceTypeID{44{Facebook
+ExternalSourceCodes{SourceTypeID{44{First Bank Of Mitchell (Test)
+ExternalSourceCodes{SourceTypeID{45{First Direct (UK) - Bank
+ExternalSourceCodes{SourceTypeID{45{Twitter
+ExternalSourceCodes{SourceTypeID{46{DagBankMultilevel - Bank
+ExternalSourceCodes{SourceTypeID{46{First Trust Bank (UK)
+ExternalSourceCodes{SourceTypeID{47{First Trust Bank iBusiness (UK)
+ExternalSourceCodes{SourceTypeID{47{Xero
+ExternalSourceCodes{SourceTypeID{48{Bigcommerce
+ExternalSourceCodes{SourceTypeID{48{FTD DEST Dummy - Bank
+ExternalSourceCodes{SourceTypeID{49{FTD SRC Dummy - Bank
+ExternalSourceCodes{SourceTypeID{49{Intuit
+ExternalSourceCodes{SourceTypeID{5{AdvisorTestSiteforDummyMortgage
+ExternalSourceCodes{SourceTypeID{50{DagBankTokenFMPA - Bank
+ExternalSourceCodes{SourceTypeID{50{Halifax Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{51{Halifax Online (UK) - Bank
+ExternalSourceCodes{SourceTypeID{51{Marqeta
+ExternalSourceCodes{SourceTypeID{52{Hammersmith & Fulham (UK) - Bank
+ExternalSourceCodes{SourceTypeID{53{Handelsbanken (Card reader without cable) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{54{HBOS (UK) - Bank
+ExternalSourceCodes{SourceTypeID{55{Hi-Scot CU (UK) - Bank
+ExternalSourceCodes{SourceTypeID{56{HSBC Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{57{HSBC Business (UK) - Bank
+ExternalSourceCodes{SourceTypeID{58{HSBC Business(new) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{59{HSBC Private Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{6{Affinity Bank (GA)
+ExternalSourceCodes{SourceTypeID{60{Icesave (UK) - Bank
+ExternalSourceCodes{SourceTypeID{61{ICICI Bank (UK)
+ExternalSourceCodes{SourceTypeID{62{ICICI Bank Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{63{Intelligent Finance (UK) - Bank
+ExternalSourceCodes{SourceTypeID{64{Investec - Private Banking (UK)
+ExternalSourceCodes{SourceTypeID{65{Investec.com (UK) - Bank
+ExternalSourceCodes{SourceTypeID{66{Kent Reliance Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{67{Kent Savers (UK) - Bank
+ExternalSourceCodes{SourceTypeID{68{Leeds Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{69{Lloyds (UK) - Bank
+ExternalSourceCodes{SourceTypeID{7{Airdrie Savings Bank (UK)
+ExternalSourceCodes{SourceTypeID{70{Lloyds Business Banking (UK)
+ExternalSourceCodes{SourceTypeID{71{Lloyds Offshore International (UK) - Bank
+ExternalSourceCodes{SourceTypeID{72{Marks and spencer (UK) - Bank
+ExternalSourceCodes{SourceTypeID{73{Merrill Lynch HSBC (UK) - Bank
+ExternalSourceCodes{SourceTypeID{74{Metro Bank Business Corporate (UK) - Bank
+ExternalSourceCodes{SourceTypeID{75{Metro Bank Retail (UK) - Bank
+ExternalSourceCodes{SourceTypeID{76{Monmouthshire Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{77{Nationwide Building Society (Mysave) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{78{Nationwide Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{79{Nationwide Building Society(Formely Derbyshire) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{8{Aldermore Savings (UK) - Bank
+ExternalSourceCodes{SourceTypeID{80{NatWest Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{81{NatWest Bank Business Bankline (UK)
+ExternalSourceCodes{SourceTypeID{82{Nedbank Private Wealth (UK) - Bank
+ExternalSourceCodes{SourceTypeID{83{Newcastle Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{84{Norwich and Peterborough BS (UK) - Bank
+ExternalSourceCodes{SourceTypeID{85{Nottingham Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{86{NS&I (UK) - Bank
+ExternalSourceCodes{SourceTypeID{87{Nutmeg (UK) - Bank
+ExternalSourceCodes{SourceTypeID{88{Post Office (UK) - Bank
+ExternalSourceCodes{SourceTypeID{89{Principality Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{9{Alliance Trust Savings (UK) - Bank
+ExternalSourceCodes{SourceTypeID{90{Royal Bank of Scotland (UK) - Bank
+ExternalSourceCodes{SourceTypeID{91{Royal Bank of Scotland Business Bankline (UK)
+ExternalSourceCodes{SourceTypeID{92{Royal Bank of Scotland Business Digital (UK) - Bank
+ExternalSourceCodes{SourceTypeID{93{Royal Bank of Scotland Offshore Digital Banking (UK)
+ExternalSourceCodes{SourceTypeID{94{Saffron Building Society (UK) - Bank
+ExternalSourceCodes{SourceTypeID{95{Saga Savings (UK) - Bank
+ExternalSourceCodes{SourceTypeID{96{Sage Pay (UK) - Bank
+ExternalSourceCodes{SourceTypeID{97{Sainsbury's Bank (UK) - Bank
+ExternalSourceCodes{SourceTypeID{98{Santander (International Saver) (UK) - Bank
+ExternalSourceCodes{SourceTypeID{99{Santander (UK) - Bank
+ExternalSourceStatus{StatusID{0{Initial
+ExternalSourceStatus{StatusID{1{Complete
+ExternalSourceStatus{StatusID{-100{Unknown
+ExternalSourceStatus{StatusID{2{Incomplete
+ExternalSourceStatus{StatusID{3{Processing
+ExternalSourceStatus{StatusID{4{PendingProcessing
+ExternalSourceStatus{StatusID{5{Error
+ExternalSourceStatus{StatusID{6{Analyzing
+ModelCodes{ModelID{10{SanUK
+ModelCodes{ModelID{-100{Unknown
+ModelCodes{ModelID{2{Fraud Model v8
+ProcessCodes{ProcessID{1{External source creation
+ProcessCodes{ProcessID{-100{Unknown
+ProcessCodes{ProcessID{2{External source refresh
+ProcessCodes{ProcessID{3{User generated
+ProcessCodes{ProcessID{4{System generated
