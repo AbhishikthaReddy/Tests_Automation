@@ -271,11 +271,11 @@ class scenario(object):
 							pass_list3.append(column)
 						p = p + 1
 
-
-				if len(pass_list3) == len(client_file_data):
-					line10 = {"Test name": "Special characters", "Result": "Passed"}
+				if len(result_fail_list1) > 0:
+					line10 = {"Test name": "Special characters", "Result": "Failed", "Output": result_fail_list1}
 				else:
-					line10={"Test name": "Special characters", "Result": "Failed","Output": result_fail_list1}
+					line10 = {"Test name": "Special characters", "Result": "Passed"}
+
 			
 				# checking for invalid values
 
@@ -373,4 +373,4 @@ class scenario(object):
 			return final_lines_to_file
 
 		except Exception as err:
-			print("Encountered error: "+err)
+			print("Encountered error: "+ str(err))
