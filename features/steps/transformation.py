@@ -103,7 +103,7 @@ class scenario(object):
 				for index, col in enumerate(json_def_data_columns_list_index):
 					datatype_col[col] = json_def_data_columns_list_no_orderdict[col]['allowempty']
 
-				datatype_col_new = {k:v for k,v in datatype_col.items() if v == 'Yes'}
+				datatype_col_new = {k:v for k,v in datatype_col.items() if v == 'No'}
 
 				client_file_data_df = client_file_data_df[list(datatype_col_new.keys())]
 

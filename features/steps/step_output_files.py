@@ -14,12 +14,13 @@ def step_given_the_file(context):
 	date = context.config.userdata.get("date")
 	if len(date) == 8:
 		masterfile_loc = context.config.userdata.get("masterfile_loc")
-		try:
-			masterfile = pd.read_json(masterfile_loc)
-			resultsfiles_loc = masterfile.resultsfiles_loc.ix[0]
-		except:
-			print("MasterJSON File Not Found in the specified path")
-		# resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		if len(resultsfiles_loc) == 0:
+			try:
+				masterfile = pd.read_json(masterfile_loc)
+				resultsfiles_loc = masterfile.resultsfiles_loc.ix[0]
+			except:
+				print("MasterJSON File Not Found in the specified path")
 		timestamp = context.config.userdata.get("timestamp")
 		if len(timestamp) >= 6:
 			try:
