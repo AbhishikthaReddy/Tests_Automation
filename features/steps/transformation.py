@@ -1,4 +1,5 @@
 import pandas as pd
+import re, json
 import re, json, csv
 from collections import OrderedDict
 import datetime
@@ -47,6 +48,7 @@ class scenario(object):
 
 
 				# column names validation
+
 
 				client_file_data_columns_list = list(client_file_data.columns)
 				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
@@ -129,11 +131,13 @@ class scenario(object):
 				i = 1
 				matches = {}
 				empty_rows_list = []
+
 				with open(client_file,'r') as out:
 					for line in out:
 						if line == '\n':
 							matches[i] = "matched"
 							matches.update(matches)
+
 						elif ''.join(line.split(',')).strip() == '':
 							matches[i] = "matched"
 							matches.update(matches)
@@ -288,11 +292,11 @@ class scenario(object):
 							pass_list3.append(column)
 						p = p + 1
 
-
-				if len(pass_list3) == len(client_file_data):
-					line10 = {"Test name": "Special characters", "Result": "Passed"}
+				if len(result_fail_list1) > 0:
+					line10 = {"Test name": "Special characters", "Result": "Failed", "Output": result_fail_list1}
 				else:
-					line10={"Test name": "Special characters", "Result": "Failed","Output": result_fail_list1}
+					line10 = {"Test name": "Special characters", "Result": "Passed"}
+
 			
 				# checking for invalid values
 

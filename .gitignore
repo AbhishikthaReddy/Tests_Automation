@@ -6,7 +6,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
+.idea/
 data/
 defintion_data/
 Pass/
