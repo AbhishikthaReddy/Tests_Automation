@@ -359,7 +359,7 @@
       "description": "Principal balance charged off",
       "data-format":""
     },
-    "CurrentChargeoffBalance": {
+    "CurrentChargeOffBalance": {
       "order": "30",
       "dbtype": "DECIMAL(18,2)",
       "minvalue" : "",

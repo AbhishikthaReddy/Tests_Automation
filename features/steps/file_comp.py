@@ -10,7 +10,7 @@ class f_comp(object):
 		self.fn = None
 
 
-	def comp(self, date, timestamp, resultsfiles_loc, datafiles_names):
+	def comp(self, date, timestamp, resultsfiles_loc, datafiles_names, today_now):
 
 		pass_file_list = os.listdir(resultsfiles_loc+"Pass"+"/")
 		fail_file_list = os.listdir(resultsfiles_loc+"Failed"+"/")
@@ -39,9 +39,9 @@ class f_comp(object):
 							else:
 								result_line.append(a+"--"+b+":"+"The two files are similar")
 					else:
-						result_line.append("There are no other timestamp files to be compared to "+client_file_name+" in the Pass folder")
+						result_line.append("There are no other timestamp files to be compared to "+client_file_name+"_"+today_now+" in the Pass folder")
 				else:
-					result_line.append(client_file_name+" passed for first time")
+					result_line.append(client_file_name+"_"+today_now+" ------ passed")
 			
 			with open(resultsfiles_loc+"SUMMARY_FILE_"+timestamp+".json", 'w') as f2:
 				json.dump(result_line, f2, indent=4)

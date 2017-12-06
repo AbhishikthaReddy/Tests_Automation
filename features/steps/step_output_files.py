@@ -4,6 +4,7 @@ from files import retrieve_files
 from file_comp import f_comp
 from transformation import scenario
 from dir_file import dir_create
+import pandas as pd
 
 
 @given('a file')
@@ -13,7 +14,12 @@ def step_given_the_file(context):
 	date = context.config.userdata.get("date")
 	if len(date) == 8:
 		masterfile_loc = context.config.userdata.get("masterfile_loc")
-		resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		try:
+			masterfile = pd.read_json(masterfile_loc)
+			resultsfiles_loc = masterfile.resultsfiles_loc.ix[0]
+		except:
+			print("MasterJSON File Not Found in the specified path")
+		# resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
 		timestamp = context.config.userdata.get("timestamp")
 		if len(timestamp) >= 6:
 			try:
@@ -21,9 +27,9 @@ def step_given_the_file(context):
 				if len(datafiles_names) != 0 and len(deffiles_names) != 0 and len(datafiles_names) == len(deffiles_names):
 					dir_file = dir_create()
 					values = dir_file.dir(resultsfiles_loc)
-					final_lines_to_file = context.transformation.scenario_writing_to_files(resultsfiles_loc, datafiles_names,deffiles_names, date, timestamp, row_count_file, summary_invalid_file, field_separator)
+					final_lines_to_file, today_now = context.transformation.scenario_writing_to_files(resultsfiles_loc, datafiles_names,deffiles_names, date, timestamp, row_count_file, summary_invalid_file, field_separator)
 					file_comp = f_comp()
-					comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names)
+					comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names, today_now)
 
 					@then('column names should match')
 					def step_column_names_should_match(context):

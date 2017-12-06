@@ -3,6 +3,7 @@
   "datafilelocation" : "data",
   "definitionfilelocation" : "definition_data",
   "controlfile": "definition_data/ControlFileDefinition.json",
+  "resultsfiles_loc": "./Result/",
   "fieldseparator": ",",
   "files": {
      "file1":
@@ -89,26 +90,6 @@
     {
       "filename": "kab_threatmetrix",
       "filedeffile": "definition_data/ThreatMetrixFileDefinition.json"
-    },
-    "file19":
-    {
-       "filename": "kab_sample1",
-      "filedeffile": "definition_data/SampleFileDefinition.json"
-    },
-    "file20":
-    {
-       "filename": "kab_emptyrow",
-      "filedeffile": "definition_data/SampleFileDefinition.json"
-    },
-    "file21":
-    {
-      "filename": "kab_duplicatevalues",
-      "filedeffile": "definition_data/SampleFileDefinition.json"
-    },
-    "file22":
-    {
-      "filename": "kab_datatype",
-      "filedeffile": "definition_data/SampleFileDefinition.json"
     }
   }
 }

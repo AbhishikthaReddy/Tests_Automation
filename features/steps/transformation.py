@@ -1,6 +1,7 @@
 import pandas as pd
 import re, json, csv
 from collections import OrderedDict
+import datetime
 
 class scenario(object):
 
@@ -19,6 +20,7 @@ class scenario(object):
 
 		final_lines_to_file = {}
 		pass_control_file_data, fail_control_file_data = [], []
+		today_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
 		try:
 			for i in range(0, len(datafiles_names)):
@@ -27,13 +29,15 @@ class scenario(object):
 				json_def = deffiles_names[i]
 				sep_value = scenario.seperator_value(json_def)
 				client_file_name = client_file.rsplit("/", 1)[1]
+
 				json_def_name = json_def.split('/')[1]
 				client_file_name_split = client_file_name[-len(client_file_name):-4]
 
 				text_file_pass = resultsfilelocation + "/" + "Pass/"
 				text_file_fail = resultsfilelocation + "/" + "Failed/"
-				text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + ".json"
+				text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + "_" + today_now + ".json"
 				pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
+
 
 				client_file_data = pd.read_csv(client_file, sep=sep_value)
 				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
@@ -88,7 +92,21 @@ class scenario(object):
 
 				client_file_data_df = pd.DataFrame(client_file_data)
 				client_file_data_df.index=client_file_data_df.index+1
+
+				json_def_data_columns_list_no_orderdict = (json_def_data_no_orderdict["columns"])
+				json_def_data_columns_list_index = (list(json_def_data_no_orderdict["columns"].index))
+
+				datatype_col, datatype_col_new = {}, {}
+
+				for index, col in enumerate(json_def_data_columns_list_index):
+					datatype_col[col] = json_def_data_columns_list_no_orderdict[col]['allowempty']
+
+				datatype_col_new = {k:v for k,v in datatype_col.items() if v == 'Yes'}
+
+				client_file_data_df = client_file_data_df[list(datatype_col_new.keys())]
+
 				client_file_data_dff2 = client_file_data_df.isnull().stack()[lambda x: x].index.tolist()
+
 				if (client_file_data_df.isnull().sum().sum()):
 					dict1={}
 					output1 = client_file_data_dff2
@@ -246,6 +264,9 @@ class scenario(object):
 
 				result_dup_list=[]
 
+				client_file_data_df = pd.DataFrame(client_file_data)
+				client_file_data_df.index=client_file_data_df.index+1
+
 				dupff = client_file_data_df[client_file_data_df.duplicated(keep='first')]
 				row_number = dupff.index+1
 				if len(dupff)>0:
@@ -366,7 +387,7 @@ class scenario(object):
 					for line in fail_control_file_data:
 						out2.write('\n'+line)
 
-			return final_lines_to_file
+			return final_lines_to_file, today_now
 
 		except Exception as err:
-			print("Encountered error: "+err)
+			print("Encountered error: "+str(err))
