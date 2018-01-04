@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "AddressTypeID": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Type of address provided",
-      "data-format":""
+      "description": "Type of address provided"
     },
     "Address1": {
       "order": "3",
@@ -43,9 +41,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "First line of provided address",
-      "data-format":""
+      "allowempty": "Yes",
+      "description": "First line of provided address"
     },
     "Address2": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Second line of provided address",
-      "data-format":""
+      "description": "Second line of provided address"
     },
 	  "City": {
       "order": "5",
@@ -67,9 +63,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "The city of provided address",
-      "data-format":""
+      "allowempty": "Yes",
+      "description": "The city of provided address"
     },
     "PostalCode": {
       "order": "6",
@@ -79,9 +74,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Postal code of provided address",
-      "data-format":""
+      "allowempty": "Yes",
+      "description": "Postal code of provided address"
     },
     "HouseName": {
       "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "House name",
-      "data-format":""
+      "description": "House name"
     },
     "HouseNumber": {
       "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "House number",
-      "data-format":""
+      "description": "House number"
     },
 	"FlatNumber": {
       "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Flat number",
-      "data-format":""
+      "description": "Flat number"
     },
     "County": {
       "order": "10",
@@ -128,8 +119,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "County",
-      "data-format":""
+      "description": "County"
     }
   }
 }

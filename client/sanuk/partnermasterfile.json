@@ -4,7 +4,7 @@
   "definitionfilelocation" : "definition_data",
   "controlfile": "definition_data/ControlFileDefinition.json",
   "resultsfiles_loc": "./Result/",
-  "fieldseparator": ",",
+  "fieldseparator": "{",
   "files": {
      "file1":
     {
@@ -16,77 +16,77 @@
       "filename": "kab_portfolio",
       "filedeffile": "definition_data/PortfolioFileDefinition.json"
     },
-    "file4":
+    "file3":
     {
       "filename": "kab_portfolio_projection",
       "filedeffile": "definition_data/PortfolioProjectionFileDefinition.json"
     },
-    "file5":
+    "file4":
     {
       "filename": "kab_evaluation",
       "filedeffile": "definition_data/EvaluationFileDefinition.json"
     },
-    "file6":
+    "file5":
     {
       "filename": "kab_complaints",
       "filedeffile": "definition_data/ComplaintsFileDefinition.json"
     },
-    "file7":
+    "file6":
     {
       "filename": "kab_evaluation_score",
       "filedeffile": "definition_data/EvaluationScoreFileDefinition.json"
     },
-    "file8":
+    "file7":
     {
       "filename": "kab_experian_bank_verification",
       "filedeffile": "definition_data/ExperianBankVerificationFileDefinition.json"
     },
-    "file9":
+    "file8":
     {
       "filename": "kab_account_consent",
       "filedeffile": "definition_data/AccountConsentFileDefinition.json"
     },
-    "file10":
+    "file9":
     {
       "filename": "kab_account_event",
       "filedeffile": "definition_data/AccountEventFileDefinition.json"
     },
-    "file11":
+    "file10":
     {
       "filename": "kab_account_fee_suspension",
       "filedeffile": "definition_data/AccountFeeSuspensionFileDefinition.json"
     },
-    "file12":
+    "file11":
     {
       "filename": "kab_account_promisetopay",
       "filedeffile": "definition_data/AccountPromiseToPayFileDefinition.json"
     },
-    "file13":
+    "file12":
     {
       "filename": "kab_external_sources",
       "filedeffile": "definition_data/ExternalSourcesFileDefinition.json"
     },
-    "file14":
+    "file13":
     {
       "filename": "kab_account_address",
       "filedeffile": "definition_data/AccountAddressFileDefinition.json"
     },
-    "file15":
+    "file14":
     {
       "filename": "kab_account_phone",
       "filedeffile": "definition_data/AccountPhoneFileDefinition.json"
     },
-    "file16":
+    "file15":
     {
       "filename": "kab_error",
       "filedeffile": "definition_data/ErrorsFileDefinition.json"
     },
-    "file17":
+    "file16":
     {
       "filename": "kab_key_official",
       "filedeffile": "definition_data/KeyOfficialsDefinition.json"
     },
-    "file18":
+    "file17":
     {
       "filename": "kab_threatmetrix",
       "filedeffile": "definition_data/ThreatMetrixFileDefinition.json"

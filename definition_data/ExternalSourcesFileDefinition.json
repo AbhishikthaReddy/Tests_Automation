@@ -9,7 +9,7 @@
   "encrypted": "No",
   "fullorincremental": "Full",
   "description": "",
-
+  "column_names": "[ 'AccountID' , 'SourceTypeID' , 'SourceDate' , 'SourceTime' , 'StatusID' , 'HasNoErrors' , 'ExternalSourceID' , 'HasDDInstruction' , 'HexExternalSourceID' ]",
   "columns": {
     "AccountID": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "SourceTypeID": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Code of the external source",
-      "data-format":""
+      "description": "Code of the external source"
     },
     "SourceDate": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date data channel was added or modified",
-      "data-format":""
+      "description": "Date data channel was added or modified"
     },
     "SourceTime": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time data channel was added or modified",
-      "data-format":""
+      "description": "Time data channel was added or modified"
     },
     "StatusID": {
       "order": "5",
@@ -68,8 +64,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of the current status of external source",
-      "data-format":""
+      "description": "Identifier of the current status of external source"
     },
     "HasNoErrors": {
       "order": "6",
@@ -80,8 +75,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Flag denoting whether the external source analysis has errors",
-      "data-format":""
+      "description": "Flag denoting whether the external source analysis has errors"
     },
    "ExternalSourceID": {
      "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage source account identifier",
-      "data-format":""
+      "description": "Kabbage source account identifier"
     },
     "HasDDInstruction": {
      "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes whether a direct debit bureau instruction exists for the source",
-      "data-format":""
+      "description": "Denotes whether a direct debit bureau instruction exists for the source"
     },
     "HexExternalSourceID": {
      "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "ExternalSourceID in hex format.",
-      "data-format":""
+      "description": "ExternalSourceID in hex format."
     }
       
   }

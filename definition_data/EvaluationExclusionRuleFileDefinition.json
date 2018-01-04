@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "EvaluationID": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage evaluation identifier",
-      "data-format":""
+      "description": "Kabbage evaluation identifier"
     },
     "RuleCodeID": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",   
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Code of the knockout rule fired during evaluation",
-      "data-format":""
+      "description": "Code of the knockout rule fired during evaluation"
     },
     "ExclusionMessage": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Additional information regarding exclusion",
-      "data-format":""
+      "description": "Additional information regarding exclusion"
     }
   }
 }

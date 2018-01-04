@@ -9,7 +9,7 @@
   "encrypted": "No",
   "fullorincremental": "Incremental",
   "description": "",
-
+  "column_names": "[ 'NumberOfFiles' ]",
   "columns": {
     "NumberOfFiles": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of blaze files sent",
-      "data-format":""
+      "description": "Number of blaze files sent"
     }
   }
 }

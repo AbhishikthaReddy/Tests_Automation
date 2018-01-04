@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "LoanID": {
       "order": "2",
@@ -32,20 +31,18 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Loan identifier",
-      "data-format":""
+      "description": "Loan identifier"
     },
     "DisbursementDate": {
       "order": "3",
       "dbtype": "INT",
-      "minvalue": "",
+      "minvalue" : "",
       "maxvalue": "",
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of loan origination",
-      "data-format": "(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date of loan origination"
     },
     "OriginalPurchaseAmount": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Original loan amount disbursed",
-      "data-format":""
+      "description": "Original loan amount disbursed"
     },
     "CurrentBalance": {
       "order": "5",
@@ -68,8 +64,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Current full balance on the loan",
-      "data-format":""
+      "description": "Current full balance on the loan"
     },
     "OutstandingPrincipal": {
       "order": "6",
@@ -80,8 +75,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Principal balance on the loan",
-      "data-format":""
+      "description": "Principal balance on the loan"
     },
     "OutstandingFees": {
       "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Fee balance on the loan",
-      "data-format":""
+      "description": "Fee balance on the loan"
     },
     "RemainingPayments": {
       "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of payment allocations remaining to clear the loan",
-      "data-format":""
+      "description": "Number of payment allocations remaining to clear the loan"
     },
     "PaymentsApplied": {
       "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of payments made on the loan",
-      "data-format":""
+      "description": "Number of payments made on the loan"
     },
     "CurrentDue": {
       "order": "10",
@@ -128,8 +119,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Current due balance of the loan",
-      "data-format":""
+      "description": "Current due balance of the loan"
     },
     "PastDue": {
       "order": "11",
@@ -140,8 +130,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Total past due balance of the loan (1-7)",
-      "data-format":""
+      "description": "Total past due balance of the loan (1-7)"
     },
     "PastDue1": {
       "order": "12",
@@ -152,8 +141,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 1",
-      "data-format":""
+      "description": "Past due balance in bucket 1"
     },
     "PastDue2": {
       "order": "13",
@@ -164,8 +152,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 2",
-      "data-format":""
+      "description": "Past due balance in bucket 2"
     },
     "PastDue3": {
       "order": "14",
@@ -176,8 +163,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 3",
-      "data-format":""
+      "description": "Past due balance in bucket 3"
     },
     "PastDue4": {
       "order": "15",
@@ -188,8 +174,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 4",
-      "data-format":""
+      "description": "Past due balance in bucket 4"
     },
     "PastDue5": {
       "order": "16",
@@ -200,8 +185,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 5",
-      "data-format":""
+      "description": "Past due balance in bucket 5"
     },
     "PastDue6": {
       "order": "17",
@@ -212,8 +196,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 6",
-      "data-format":""
+      "description": "Past due balance in bucket 6"
     },
     "PastDue7": {
       "order": "18",
@@ -224,8 +207,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Past due balance in bucket 7",
-      "data-format":""
+      "description": "Past due balance in bucket 7"
     },
     "CurrentDaysDelinquent": {
       "order": "19",
@@ -236,8 +218,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of days the loan has currently been in a delinquent status",
-      "data-format":""
+      "description": "Number of days the loan has currently been in a delinquent status"
     },
     "DateOfDelinquency": {
       "order": "20",
@@ -247,9 +228,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Date at which the loan last entered delinquent status",
-      "data-format":""
+      "allowempty": "Yes",
+      "description": "Date at which the loan last entered delinquent status"
     },
     "CurrentDelinquencyStatus": {
       "order": "21",
@@ -260,8 +240,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Delinquent status of the loan",
-      "data-format":""
+      "description": "Delinquent status of the loan"
     },
     "TotalDaysDelinquent": {
       "order": "22",
@@ -272,8 +251,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Total number of days the loan has ever been in a delinquent status",
-      "data-format":""
+      "description": "Total number of days the loan has ever been in a delinquent status"
     },
     "TotalLateFeeAmount": {
       "order": "23",
@@ -284,8 +262,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Total late fees that have been assessed on the loan",
-      "data-format":""
+      "description": "Total late fees that have been assessed on the loan"
     },
     "PayOffDate": {
       "order": "24",
@@ -296,8 +273,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date the loan was paid off by customer",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date the loan was paid off by customer"
     },
     "ChargeOffDate": {
       "order": "25",
@@ -308,10 +284,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date the loan was charged off",
-      "data-format":"(^(((0?[1-9]|[12][0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|[12][0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|[12][0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date the loan was charged off"
     },
-    "TotalAmountofLoanChargeOff": {
+    "TotalAmountOfLoanChargeOff": {
       "order": "26",
       "dbtype": "DECIMAL(18,2)",
       "minvalue" : "",
@@ -320,10 +295,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Total loan balance charged off",
-      "data-format":""
+      "description": "Total loan balance charged off"
     },
-    "TotalAmountofLoanChargeOffFees": {
+    "TotalAmountOfLoanChargeOffFees": {
       "order": "27",
       "dbtype": "DECIMAL(18,2)",
       "minvalue" : "",
@@ -332,10 +306,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Fee balance charged off",
-      "data-format":""
+      "description": "Fee balance charged off"
     },
-    "TotalAmountofLoanChargeOffInterest": {
+    "TotalAmountOfLoanChargeOffInterest": {
       "order": "28",
       "dbtype": "DECIMAL(18,2)",
       "minvalue" : "",
@@ -344,10 +317,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Interest balance charged off",
-      "data-format":""
+      "description": "Interest balance charged off"
     },
-    "TotalAmountofLoanChargeOffPrincipal": {
+    "TotalAmountOfLoanChargeOffPrincipal": {
       "order": "29",
       "dbtype": "DECIMAL(18,2)",
       "minvalue" : "",
@@ -356,8 +328,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Principal balance charged off",
-      "data-format":""
+      "description": "Principal balance charged off"
     },
     "CurrentChargeOffBalance": {
       "order": "30",
@@ -368,8 +339,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Total charge-off amount less any collections after charge-off date",
-      "data-format":""
+      "description": "Total charge-off amount less any collections after charge-off date"
     },
     "BillingTableID": {
       "order": "31",
@@ -380,8 +350,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Lookup value to BillingTable extract defining term, rate, etc.",
-      "data-format":""
+      "description": "Lookup value to BillingTable extract defining term, rate, etc."
     },
     "InterestRate": {
       "order": "32",
@@ -392,8 +361,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Interest rate for the loan",
-      "data-format":""
+      "description": "Interest rate for the loan"
     },
     "TermLengthMonths": {
       "order": "33",
@@ -404,8 +372,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Term for the loan",
-      "data-format":""
+      "description": "Term for the loan"
     },
     "LastPaymentDate": {
       "order": "34",
@@ -416,8 +383,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date of last non-reversed payment on the loan",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date of last non-reversed payment on the loan"
     },
     "LastPaymentAmount": {
       "order": "35",
@@ -428,8 +394,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of last non-reversed payment on the loan",
-      "data-format":""
+      "description": "Amount of last non-reversed payment on the loan"
     },
     "NextPaymentDate": {
       "order": "36",
@@ -440,8 +405,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date of next projection due for the loan",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date of next projection due for the loan"
     },
     "NextPaymentAmount": {
       "order": "37",
@@ -452,22 +416,20 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of next projection due for the loan",
-      "data-format":""
+      "description": "Amount of next projection due for the loan"
     },
     "InvoiceNumber": {
       "order": "38",
-      "dbtype": "DECIMAL(18,2)",
+      "dbtype": "BIGINT",
       "minvalue" : "",
       "maxvalue": "",
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Internal Kabbage identifier",
-      "data-format":""
+      "description": "Internal Kabbage identifier"
     },
-    "PortfolioTransactionID": {
+    "PortfolioTransactionId": {
       "order": "39",
       "dbtype": "INT",
       "minvalue" : "",
@@ -476,8 +438,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Originating transaction identifier for the loan",
-      "data-format":""
+      "description": "Originating transaction identifier for the loan"
     },
     "LastDateDelinquent": {
       "order": "40",
@@ -488,8 +449,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Last date the loan was in a delinquent status",
-      "data-format":""
+      "description": "Last date the loan was in a delinquent status"
     },
     "NumberTimesDelinquent": {
       "order": "41",
@@ -500,8 +460,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Distinct count of number of times the account has been in delinquent status",
-      "data-format":""
+      "description": "Distinct count of number of times the account has been in delinquent status"
     },
     "WriteOffBalance": {
       "order": "42",
@@ -512,8 +471,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of write off for the given loan",
-      "data-format":""
+      "description": "Amount of write off for the given loan"
     },
     "ClosedOnDate": {
       "order": "43",
@@ -524,8 +482,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Either PayOffDate or ChargeOffDate, depending on how loan was closed",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Either PayOffDate or ChargeOffDate, depending on how loan was closed"
     },
     "OriginalMaturityDate": {
       "order": "44",
@@ -535,9 +492,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Date of loan payoff, at time of origination",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "allowempty": "Yes",
+      "description": "Date of loan payoff, at time of origination"
     },
     "CurrentMaturityDate": {
       "order": "45",
@@ -547,9 +503,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Current date of loan payoff",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "allowempty": "Yes",
+      "description": "Current date of loan payoff"
     },
     "LoanDelinquencyStartDate": {
       "order": "46",
@@ -560,8 +515,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "First date in which the loan became delinquent",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "First date in which the loan became delinquent"
     },
     "CurrentDelinquentInstallments": {
       "order": "47",
@@ -572,8 +526,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Number of installments that are delinquent",
-      "data-format":""
+      "description": "Number of installments that are delinquent"
     },
     "TotalDelinquentPrincipal": {
       "order": "48",
@@ -584,8 +537,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of loan principal that is currently delinquent",
-      "data-format":""
+      "description": "Amount of loan principal that is currently delinquent"
     },
     "TotalDelinquentInterest": {
       "order": "49",
@@ -596,8 +548,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of loan interest that is currently delinquent",
-      "data-format":""
+      "description": "Amount of loan interest that is currently delinquent"
     },
     "NumberOfPaidInstallments": {
       "order": "50",
@@ -608,8 +559,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Number of payment projections that have been satisfied",
-      "data-format":""
+      "description": "Number of payment projections that have been satisfied"
     },
     "NextPrincipalAmount": {
       "order": "51",
@@ -620,8 +570,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of principal within next payment projection",
-      "data-format":""
+      "description": "Amount of principal within next payment projection"
     },
     "NextInterestAmount": {
       "order": "52",
@@ -632,8 +581,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Amount of interest within next payment projection",
-      "data-format":""
+      "description": "Amount of interest within next payment projection"
     },
     "APR": {
       "order": "53",
@@ -644,8 +592,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Annual percentage rate of loan",
-      "data-format":""
+      "description": "Annual percentage rate of loan"
     },
     "ReversalDate": {
       "order": "54",
@@ -656,8 +603,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date of loan reversal",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date of loan reversal"
     }
 
   }

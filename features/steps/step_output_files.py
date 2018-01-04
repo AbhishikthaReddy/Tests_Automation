@@ -11,26 +11,41 @@ import pandas as pd
 def step_given_the_file(context):
 	context.files = retrieve_files()
 	context.transformation = scenario()
-	date = context.config.userdata.get("date")
+	date = context.config.userdata.get("date", '20170504')
 	if len(date) == 8:
-		masterfile_loc = context.config.userdata.get("masterfile_loc")
-		resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		masterfile_loc = context.config.userdata.get("masterfile_loc", './sanuk/partnermasterfile.json')
+		resultsfiles_loc = context.config.userdata.get("resultsfiles_loc", './results')
+		masterfile = pd.read_json(masterfile_loc)
+		data_dir = masterfile.datafilelocation.ix[0]
 		if len(resultsfiles_loc) == 0:
 			try:
 				masterfile = pd.read_json(masterfile_loc)
 				resultsfiles_loc = masterfile.resultsfiles_loc.ix[0]
+				data_dir = masterfile.datafilelocation.ix[0]
 			except:
 				print("MasterJSON File Not Found in the specified path")
-		timestamp = context.config.userdata.get("timestamp")
+		timestamp = context.config.userdata.get("timestamp", '153636')
 		if len(timestamp) >= 6:
 			try:
-				datafiles_names, deffiles_names, row_count_file, summary_invalid_file, field_separator = context.files.files(date, masterfile_loc, resultsfiles_loc,timestamp)
+				datafiles_names, deffiles_names, row_count_file, summary_invalid_file, field_separator = context.files.files(date, masterfile_loc, resultsfiles_loc, timestamp)
 				if len(datafiles_names) != 0 and len(deffiles_names) != 0 and len(datafiles_names) == len(deffiles_names):
 					dir_file = dir_create()
 					values = dir_file.dir(resultsfiles_loc)
-					final_lines_to_file, today_now = context.transformation.scenario_writing_to_files(resultsfiles_loc, datafiles_names,deffiles_names, date, timestamp, row_count_file, summary_invalid_file, field_separator)
-					file_comp = f_comp()
-					comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names, today_now)
+					final_lines_to_file, today_now = \
+						context.transformation.scenario_writing_to_files(resultsfiles_loc,
+                                                                                                 data_dir,
+                                                                                                 datafiles_names,
+                                                                                                 deffiles_names,
+                                                                                                 date,
+                                                                                                 timestamp,
+                                                                                                 row_count_file,
+                                                                                                 summary_invalid_file,
+                                                                                                 field_separator)
+					# print('final lines to file', final_lines_to_file)
+					# print('today now', today_now)
+					# file_comp = f_comp()
+					# print('file comp', file_comp)
+					# comparison = file_comp.comp(date, timestamp, resultsfiles_loc, datafiles_names, today_now)
 
 					@then('column names should match')
 					def step_column_names_should_match(context):

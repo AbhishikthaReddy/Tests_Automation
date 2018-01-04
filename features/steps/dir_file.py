@@ -27,4 +27,3 @@ class dir_create(object):
 			return  mydir_pass, mydir_fail, mydir_result, mydir_summary_result
 		except Exception as err:
 			print("Encountered error: "+err)
-		

@@ -9,7 +9,7 @@
   "encrypted": "No",
   "fullorincremental": "Full",
   "description": "",
-
+  "column_names": "[ 'LookupTableName' , 'ColumnName' , 'ID' , 'Value' ]",
   "columns": {
     "LookupTableName": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Lookup table name column is found",
-      "data-format":""
+      "description": "Lookup table name column is found"
     },
     "ColumnName": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Column Name from file",
-      "data-format":""
+      "description": "Column Name from file"
     },
     "ID": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Identifier of specified value",
-      "data-format":""
+      "description": "Identifier of specified value"
     },
     "Value": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Text value",
-      "data-format":""
+      "description": "Text value"
     }
   }
 }

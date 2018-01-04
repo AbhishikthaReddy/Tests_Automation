@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "AccountName": {
       "order": "2",
@@ -31,9 +30,8 @@
       "maxlength": "",
       "validvalues": "",
       "allowedcharacters": "",
-      "allowempty": "No",
-      "description": "Name of the account in format First + Middle + Surname",
-      "data-format":""
+      "allowempty": "Yes",
+      "description": "Name of the account in format First + Middle + Surname"
     },
     "Address1": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "First line of provided address",
-      "data-format":""
+      "description": "First line of provided address"
     },
     "Address2": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Second line of provided address",
-      "data-format":""
+      "description": "Second line of provided address"
     },
 	 "City": {
       "order": "5",
@@ -68,8 +64,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "The city of provided address",
-      "data-format":""
+      "description": "The city of provided address"
     },
     "PostalCode": {
       "order": "6",
@@ -80,8 +75,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Postal code of provided address",
-      "data-format":""
+      "description": "Postal code of provided address"
     },
     "Nationality": {
       "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Nationality selected by customers",
-      "data-format":""
+      "description": "Nationality selected by customers"
     },
     "DateofBirth": {
       "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date of birth for the account holder (format YYYYMMDD)",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date of birth for the account holder (format YYYYMMDD)"
     },
 	 "Title": {
       "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Title selected in personal information",
-      "data-format":""
+      "description": "Title selected in personal information"
     },
     "IsPrimaryApplicant": {
       "order": "10",
@@ -128,8 +119,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Primary customer Identifier",
-      "data-format":""
+      "description": "Primary customer Identifier"
     },
     "FirstName": {
       "order": "11",
@@ -140,8 +130,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "First name provided",
-      "data-format":""
+      "description": "First name provided"
     },
     "MiddleName": {
       "order": "12",
@@ -152,8 +141,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Middle name provided",
-      "data-format":""
+      "description": "Middle name provided"
     },
 	 "LastName": {
       "order": "13",
@@ -164,8 +152,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Last name provided",
-      "data-format":""
+      "description": "Last name provided"
     },
     "SecondNationality": {
       "order": "14",
@@ -176,8 +163,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Second nationality provided by customers",
-      "data-format":""
+      "description": "Second nationality provided by customers"
     },
     "ContactInfoID": {
       "order": "15",
@@ -188,8 +174,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "PK from table",
-      "data-format":""
+      "description": "PK from table"
     }
   }
 }

@@ -1,0 +1,6 @@
+
+SQL_HOST="bidblistener01.prod.kabbage.com"
+SQL_PORT="1433"
+SQL_USER=""
+SQL_PASS=""
+DB      ="KabbageEDW"

@@ -9,7 +9,7 @@
   "encrypted": "No",
   "fullorincremental": "Incremental",
   "description": "",
-
+  "column_names": "[ 'AccountID' , 'ExternalSourceID' , 'AccountVerificationMatch' , 'AccountOwnerMatch' , 'CompanyTypeMatch' , 'RegistrationNumberMatch' , 'PersonalDetailsScore' , 'PersonalAddressScore' , 'CompanyNameScore' , 'CompanyNameAndAddressScore' , 'VerificationDate' , 'VerificationTime' ]",
   "columns": {
     "AccountID": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "ExternalSourceID": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage bank identifier, maps back to External Source file column of the same name.",
-      "data-format":""
+      "description": "Kabbage bank identifier, maps back to External Source file column of the same name."
     },
     "AccountVerificationMatch": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Result of the account-level validation.",
-      "data-format":""
+      "description": "Result of the account-level validation."
     },
     "AccountOwnerMatch": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the owner validation check.",
-      "data-format":""
+      "description": "Result of the owner validation check."
     },
     "CompanyTypeMatch": {
       "order": "5",
@@ -68,8 +64,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the company-type validation check.",
-      "data-format":""
+      "description": "Result of the company-type validation check."
     },
     "RegistrationNumberMatch": {
       "order": "6",
@@ -80,8 +75,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Result of the registration number validation check.",
-      "data-format":""
+      "description": "Result of the registration number validation check."
     },
     "PersonalDetailsScore": {
       "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for personal details validation.",
-      "data-format":""
+      "description": "Score returned for personal details validation."
     },
     "PersonalAddressScore": {
       "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for personal address validation.",
-      "data-format":""
+      "description": "Score returned for personal address validation."
     },
     "CompanyNameScore": {
       "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for company name validation.",
-      "data-format":""
+      "description": "Score returned for company name validation."
     },
     "CompanyNameAndAddressScore": {
       "order": "10",
@@ -128,8 +119,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Score returned for company name + address validation.",
-      "data-format":""
+      "description": "Score returned for company name + address validation."
     },
     "VerificationDate": {
       "order": "11",
@@ -140,8 +130,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date of verification check.",
-      "data-format":""
+      "description": "Date of verification check."
     },
     "VerificationTime": {
       "order": "12",
@@ -152,8 +141,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Time of verification check",
-      "data-format":""
+      "description": "Time of verification check"
     }
   }
 }

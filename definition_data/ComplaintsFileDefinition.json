@@ -9,7 +9,7 @@
   "encrypted": "Yes",
   "fullorincremental": "Incremental",
   "description": "",
-
+  "column_names": "[ 'AccountID' , 'CaseReference' , 'Resolver' , 'Definition' , 'Stage' , 'Status' , 'ReceivedDate' , 'ClosedDate' , 'AcceptanceConfirmed' , 'Decision' , 'ComplaintType' , 'Issues' , 'Investigation' , 'Actions' , 'RedressPayments' , 'D&IPayments' , 'CreatedBy' , 'FinalReponseSent' , 'SummaryResponsesent' , 'ParentTicketCreatedDate' , 'ParentTicketClosedDate' , 'DirectDebitStatus' , 'CurrencyISOCode' ]",
   "columns": {
     "AccountID": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "CaseReference": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage case identitifer",
-      "data-format":""
+      "description": "Kabbage case identitifer"
     },
     "Resolver": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Owner of the case",
-      "data-format":""
+      "description": "Owner of the case"
     },
     "Definition": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Type of case",
-      "data-format":""
+      "description": "Type of case"
     },
 	 "Stage": {
       "order": "5",
@@ -68,8 +64,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes the current state of the case",
-      "data-format":""
+      "description": "Denotes the current state of the case"
     },
     "Status": {
       "order": "6",
@@ -80,8 +75,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes the current status of the case",
-      "data-format":""
+      "description": "Denotes the current status of the case"
     },
     "ReceivedDate": {
       "order": "7",
@@ -92,8 +86,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Date the case was created",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date the case was created"
     },
     "ClosedDate": {
       "order": "8",
@@ -104,8 +97,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Date the case was closed",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Date the case was closed"
     },
 	 "AcceptanceConfirmed": {
       "order": "9",
@@ -116,8 +108,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Denotes whether case was accepted",
-      "data-format":""
+      "description": "Denotes whether case was accepted"
     },
     "Decision": {
       "order": "10",
@@ -128,8 +119,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Denotes outcome of the case",
-      "data-format":""
+      "description": "Denotes outcome of the case"
     },
     "ComplaintType": {
       "order": "11",
@@ -140,8 +130,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Describes the generator of the complaint",
-      "data-format":""
+      "description": "Describes the generator of the complaint"
     },
     "Issues": {
       "order": "12",
@@ -152,8 +141,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Free form text of complaint issues",
-      "data-format":""
+      "description": "Free form text of complaint issues"
     },
 	 "Investigation": {
       "order": "13",
@@ -164,8 +152,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Free form text of investigation notes",
-      "data-format":""
+      "description": "Free form text of investigation notes"
     },
     "Actions": {
       "order": "14",
@@ -176,9 +163,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Free form text of actions taken",
-      "data-format":""
-
+      "description": "Free form text of actions taken"
     },
     "RedressPayments": {
       "order": "15",
@@ -189,8 +174,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Payments returned to customer",
-      "data-format":""
+      "description": "Payments returned to customer"
     },
     "D&IPayments": {
       "order": "16",
@@ -201,8 +185,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Distress and inconvenience payments",
-      "data-format":""
+      "description": "Distress and inconvenience payments"
     },
 	"CreatedBy": {
       "order": "17",
@@ -213,10 +196,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Name of representative that opened the case",
-      "data-format":""
+      "description": "Name of representative that opened the case"
     },
-    "FinalResponseSent": {
+    "FinalReponseSent": {
       "order": "18",
       "dbtype": "NVARCHAR(100)",
       "minvalue" : "",
@@ -225,10 +207,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Indicates whether the ticket had a final response sent",
-      "data-format":""
+      "description": "Indicates whether the ticket had a final response sent"
     },
-    "SummaryResponseSent": {
+    "SummaryResponsesent": {
       "order": "19",
       "dbtype": "NVARCHAR(100)",
       "minvalue" : "",
@@ -237,10 +218,9 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Indicates whether the ticket had a summary response sent",
-      "data-format":""
+      "description": "Indicates whether the ticket had a summary response sent"
     },
-    "ParentTicketCreateDate": {
+    "ParentTicketCreatedDate": {
       "order": "20",
       "dbtype": "INT",
       "minvalue" : "",
@@ -249,8 +229,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Parent ticket creation date",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Parent ticket creation date"
     },
 	"ParentTicketClosedDate": {
       "order": "21",
@@ -261,8 +240,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Parent ticket closed date",
-      "data-format":"(^(((0?[1-9]|1[0-9]|2[0-8])?[-/.]?(0?[1-9]|1[012]))|((29|30|31)?[-/.]?(0?[13578]|1[02]))|((29|30)?[-/.]?(0?[4,6,9]|11)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^29?[-/.]?(0?2)?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))?[-/.]?(19|[2-9][0-9])\\d\\d$)|(^(0?2)?[-/.]?29?[-/.]?(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)|(^(19|[2-9][0-9])\\d\\d?[-/.]?(((0?[1-9]|1[012])?[-/.]?(0?[1-9]|1[0-9]|2[0-8]))|((0?[13578]|1[02])?[-/.]?(29|30|31))|((0?[4,6,9]|11)?[-/.]?(29|30)))$|(^(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)?[-/.]?(0?2)?[-/.]?29)$)"
+      "description": "Parent ticket closed date"
     },
     "DirectDebitStatus": {
       "order": "22",
@@ -273,8 +251,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Bank account validation result status",
-      "data-format":""
+      "description": "Bank account validation result status"
     },
     "CurrencyISOCode": {
       "order": "23",
@@ -285,8 +262,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Currency ISO code",
-      "data-format":""
+      "description": "Currency ISO code"
     }
   }
 }

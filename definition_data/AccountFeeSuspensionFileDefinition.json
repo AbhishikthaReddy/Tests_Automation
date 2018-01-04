@@ -9,7 +9,7 @@
   "encrypted": "No",
   "fullorincremental": "Full (active suspensions)",
   "description": "",
-
+  "column_names": "[ 'AccountID' , 'FeeSuspensionStart' , 'FeeSuspensionEnd' , 'FeeSuspensionStatus' ]",
   "columns": {
     "AccountID": {
       "order": "1",
@@ -20,8 +20,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Kabbage account identifier",
-      "data-format":""
+      "description": "Kabbage account identifier"
     },
     "FeeSuspensionStart": {
       "order": "2",
@@ -32,8 +31,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "No",
-      "description": "Beginning date when fee assessment is paused for an account",
-      "data-format":""
+      "description": "Beginning date when fee assessment is paused for an account"
     },
     "FeeSuspensionEnd": {
       "order": "3",
@@ -44,8 +42,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "Yes",
-      "description": "Ending date when fee assessment is paused for an account",
-      "data-format":""
+      "description": "Ending date when fee assessment is paused for an account"
     },
     "FeeSuspensionStatus": {
       "order": "4",
@@ -56,8 +53,7 @@
       "validvalues": "",
       "allowedcharacters": "",
       "allowempty": "",
-      "description": "Denotes whether fee suspension is open or closed",
-      "data-format":""
+      "description": "Denotes whether fee suspension is open or closed"
     }
   }
 }
