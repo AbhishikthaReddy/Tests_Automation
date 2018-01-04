@@ -45,3 +45,7 @@ Scenario: special characters check for data in a file
 @all
 Scenario: invalid-values check for data in a file
     Then  invalid-values check
+
+@all
+Scenario: generate result files
+    Then  generate result files

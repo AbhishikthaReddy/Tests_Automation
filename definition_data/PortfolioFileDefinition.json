@@ -467,7 +467,7 @@
       "description": "Internal Kabbage identifier",
       "data-format":""
     },
-    "PortfolioTransactionID": {
+    "PortfolioTransactionId": {
       "order": "39",
       "dbtype": "INT",
       "minvalue" : "",

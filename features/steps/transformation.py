@@ -1,14 +1,12 @@
 import pandas as pd
-import re, json
 import re, json, csv
 from collections import OrderedDict
-import datetime
+import re, json, csv
 
 class scenario(object):
 
 	def __init__(self):
 		self.fn = None
-
 
 	def seperator_value(def_file_name):
 
@@ -16,14 +14,12 @@ class scenario(object):
 		sep_value = sep_value.fieldseparator.ix[0]
 		return sep_value
 
+	# column names validation
 
-	def scenario_writing_to_files(self, resultsfilelocation, datafiles_names, deffiles_names,date,timestamp, row_count_file, summary_invalid_file, field_separator):
-
-		final_lines_to_file = {}
-		pass_control_file_data, fail_control_file_data = [], []
-		today_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+	def column_names(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
 
 		try:
+			line1 = []
 			for i in range(0, len(datafiles_names)):
 
 				client_file = datafiles_names[i]
@@ -34,21 +30,9 @@ class scenario(object):
 				json_def_name = json_def.split('/')[1]
 				client_file_name_split = client_file_name[-len(client_file_name):-4]
 
-				text_file_pass = resultsfilelocation + "/" + "Pass/"
-				text_file_fail = resultsfilelocation + "/" + "Failed/"
-				text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + "_" + today_now + ".json"
-				pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
-
-
 				client_file_data = pd.read_csv(client_file, sep=sep_value)
 				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
 				json_def_data_no_orderdict = pd.read_json(json_def)
-				row_count_file_data = pd.read_csv(row_count_file, sep=field_separator)
-				summary_invalid_data = pd.read_csv(summary_invalid_file, sep=field_separator)
-
-
-				# column names validation
-
 
 				client_file_data_columns_list = list(client_file_data.columns)
 				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
@@ -56,14 +40,42 @@ class scenario(object):
 				json_def_data_columns_list_case_sensitive = [i.lower() for i in json_def_data_columns_list]
 
 				if len(set(client_file_data_columns_list_case_sensitive).intersection(json_def_data_columns_list_case_sensitive)) == len(json_def_data_columns_list_case_sensitive):
-					line1 = {"Test name": "Column names", "Result": "Passed"}
+
+					line1.append({"Test name": "Column names", "Result": "Passed", "File-name": client_file_name})
 				else:
-					line1 = {"Test name": "Column names", "Result": "Failed", 
+					line1.append({"Test name": "Column names", "Result": "Failed", 
 							 "Output": {"The expected columns are": list(json_def_data_columns_list)}, 
-							 "but the columns in partner file are": list(client_file_data_columns_list)}
+							 "but the columns in partner file are": list(client_file_data_columns_list), "File-name": client_file_name_split})
 
-				# column order validation
+		except Exception as err:
+			print("Encountered error at column-names scenario: "+str(err))
 
+		return line1
+
+	# column order validation
+
+	def column_order(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+
+				client_file_data_columns_list = list(client_file_data.columns)
+				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
+				json_def_data_columns_list = (list(json_def_data["columns"]))
+				json_def_data_columns_list_case_sensitive = [i.lower() for i in json_def_data_columns_list]
 				json_def_data_columns = (json_def_data["columns"])
 				def_col, pass_list, fail_list = {}, {}, {}
 
@@ -85,12 +97,37 @@ class scenario(object):
 
 					line2 = {"Test name": "Column order", "Result": "Failed",
 							 "Output": {"the expected column order is": list(def_col.values())},
-							 "but the partner file has these columns with wrong order": list(fail_list.values())}
+							 "but the partner file has these columns with wrong order": list(fail_list.values()), "File-name": client_file_name_split}
 
 				else:
-					line2 = {"Test name": "Column order", "Result": "Passed"}
+					line2 = {"Test name": "Column order", "Result": "Passed", "File-name": client_file_name_split}
 
-				#checking for nulls
+		except Exception as err:
+			print("Encountered error at column-names scenario: "+str(err))
+
+		return line2
+
+	def null_values(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+
+				client_file_data_columns_list = list(client_file_data.columns)
+				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
+				json_def_data_columns_list = (list(json_def_data["columns"]))
+				json_def_data_columns_list_case_sensitive = [i.lower() for i in json_def_data_columns_list]
 
 				client_file_data_df = pd.DataFrame(client_file_data)
 				client_file_data_df.index=client_file_data_df.index+1
@@ -122,12 +159,31 @@ class scenario(object):
 							y.append(value)
 							dict1[columns]=y
 					line3 = {"Test name": "Check for nulls", "Result": "Failed/Nulls are found",
-							 "Null values found in": str(dict1).replace('],',']],').replace('{','').replace('}','').replace("'","").split('],')}
+							 "Null values found in": str(dict1).replace('],',']],').replace('{','').replace('}','').replace("'","").split('],'), "File-name": client_file_name_split}
 				else:
-					line3 = {"Test name": "Check for nulls", "Result": "Passed"}
+					line3 = {"Test name": "Check for nulls", "Result": "Passed", "File-name": client_file_name_split}
 
-				# checking the empty rows
+		except Exception as err:
+			print("Encountered error at null-values scenario: "+str(err))
 
+		return line3
+
+	def empty_rows(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
 				i = 1
 				matches = {}
 				empty_rows_list = []
@@ -156,12 +212,34 @@ class scenario(object):
 						empty_rows_list.append("The file has empty row at "+str(key[i]))
 
 				if len(empty_rows_list) != 0:
-					line4 = {"Test name": "Empty Rows", "Result": "Failed", "Output": empty_rows_list}
+					line4 = {"Test name": "Empty Rows", "Result": "Failed", "Output": empty_rows_list, "File-name": client_file_name_split}
 				else:
-					line4 = {"Test name": "Empty Rows", "Result": "Passed"}
+					line4 = {"Test name": "Empty Rows", "Result": "Passed", "File-name": client_file_name_split}
 
-				# check for the data-types
+		except Exception as err:
+			print("Encountered error at empty-rows scenario: "+str(err))
 
+		return line4
+
+	def data_type(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+
+				client_file_data_columns_list = list(client_file_data.columns)
+				client_file_data_columns_list_case_sensitive = [i.lower() for i in client_file_data_columns_list]
 				json_def_data_columns_list_no_orderdict = (json_def_data_no_orderdict["columns"])
 				json_def_data_columns_list_index = (list(json_def_data_no_orderdict["columns"].index))
 
@@ -176,6 +254,7 @@ class scenario(object):
 					datatype_col.update(datatype_col)
 
 				dict3 = {k:datatype_col_rename[v] for k,v in datatype_col.items()}
+				i = 0
 				for column in client_file_data_columns_list:
 					if column in dict3.keys():
 						for val in client_file_data[column]:
@@ -189,23 +268,64 @@ class scenario(object):
 				if len(set(column_pass_list)) == len(dict3.keys()):
 					line5 = {"Test name": "Data type", "Result": "Passed"}
 				elif len(client_file_data) == 0:
-					line5 = {"Test name": "Data type", "Result": "Failed", "Output": "File doesn't have any data"}
+					line5 = {"Test name": "Data type", "Result": "Failed", "Output": "File doesn't have any data", "File-name": client_file_name_split}
 				else:
-					line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list}
+					line5 = {"Test name": "Data type", "Result": "Failed", "Output": result_fail_list, "File-name": client_file_name_split}
 
-				# Row count check
+		except Exception as err:
+			print("Encountered error in data-type scenario: "+str(err))
+
+		return line5
+
+	def row_count(self, datafiles_names, deffiles_names, row_count_file, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+				row_count_file_data = pd.read_csv(row_count_file, sep=field_separator)
 
 				if str(client_file_name) in list(row_count_file_data['FileName']):
 
 					if int((row_count_file_data[row_count_file_data['FileName'] == client_file_name]['NumberOfRows'].iloc[0])) != int(len(client_file_data)):
 						line6 = {"Test name": "Row count", "Result": "Failed", "Output": "The partner file has "+str(int(row_count_file_data.ix(client_file_name)[0]['NumberOfRows']))+" rows but row count file has "+str(int(len(client_file_data)))}
 					else:
-						line6 = {"Test name": "Row count", "Result": "Passed"}
+						line6 = {"Test name": "Row count", "Result": "Passed", "File-name": client_file_name_split}
 
 				else:
-					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "Filename not present in Row count file"}
+					line6 = {"Test name": "Row count", "Result": "Failed", "Output": "Filename not present in Row count file", "File-name": client_file_name_split}
+		except Exception as err:
+			print("Encountered error in row-count scenario: "+str(err))
 
-				# Summary data check
+		return line6
+
+	def summary_data(self, datafiles_names, deffiles_names, summary_invalid_file, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+				summary_invalid_data = pd.read_csv(summary_invalid_file, sep=field_separator)
 
 				if str(client_file_name) in list(summary_invalid_data['FileName']):
 
@@ -227,12 +347,35 @@ class scenario(object):
 					else:
 						line7 = {"Test name": "Summary Data check", "Result": "Failed"}
 
-				else:
-					line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": "Filename not present in Summary Data File"}
+			else:
+				line7 = {"Test name": "Summary Data check", "Result": "Failed", "Output": "Filename not present in Summary Data File", "File-name": client_file_name_split}
 
-				#checking data formats
+		except Exception as err:
+			print("Encountered error in summary-data scenario: "+str(err))
+
+		return line7
+
+	def data_formats(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
 
 				pass_list_df, fail_list_df, list_regex=[], [], []
+				json_def_data_columns = (json_def_data["columns"])
+				json_def_data_columns_list = (list(json_def_data["columns"]))
+				client_file_data_columns_list = list(client_file_data.columns)
 
 				for col in json_def_data_columns_list:
 					regex = json_def_data_columns[col]['data-format']
@@ -259,12 +402,31 @@ class scenario(object):
 
 
 				if len(fail_list_df) > 0:
-					line8={"Test name": "Data Formats", "Result": "Failed","Output":fail_list_df}
+					line8={"Test name": "Data Formats", "Result": "Failed", "Output":fail_list_df, "File-name": client_file_name_split}
 				else:
-					line8={"Test name": "Data Formats", "Result": "Passed"}
+					line8={"Test name": "Data Formats", "Result": "Passed", "File-name": client_file_name_split}
 
+		except Exception as err:
+			print("Encountered error in creating data-formats: "+str(err))
 
-				#checking duplicate values
+		return line8
+
+	def duplicate_values(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
 
 				result_dup_list=[]
 
@@ -275,12 +437,33 @@ class scenario(object):
 				row_number = dupff.index+1
 				if len(dupff)>0:
 					result_dup_list.append("Duplicate row is found in row number:"+str(row_number.tolist()))
-					line9 = {"Test name": "Duplicate values", "Result":"Failed","Output":result_dup_list}
+					line9 = {"Test name": "Duplicate values", "Result":"Failed","Output":result_dup_list, "File-name": client_file_name_split}
 				else:
-					line9 = {"Test name":"Duplicate values", "Result":"Passed"}
+					line9 = {"Test name":"Duplicate values", "Result":"Passed", "File-name": client_file_name_split}
 
-				#check for special_characters
+		except Exception as err:
+			print("Encountered error in creating duplicate-values: "+str(err))
 
+		return line9
+
+	def special_characters(self, datafiles_names, deffiles_names, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+
+				client_file_data_columns_list = list(client_file_data.columns)
 				pass_list3, result_fail_list1 = [], []
 
 				for column in client_file_data_columns_list:
@@ -293,12 +476,32 @@ class scenario(object):
 						p = p + 1
 
 				if len(result_fail_list1) > 0:
-					line10 = {"Test name": "Special characters", "Result": "Failed", "Output": result_fail_list1}
+					line10 = {"Test name": "Special characters", "Result": "Failed", "Output": result_fail_list1, "File-name": client_file_name_split}
 				else:
-					line10 = {"Test name": "Special characters", "Result": "Passed"}
+					line10 = {"Test name": "Special characters", "Result": "Passed", "File-name": client_file_name_split}
 
-			
-				# checking for invalid values
+		except Exception as err:
+			print("Encountered error in creating duplicate-values: "+str(err))
+
+		return line10
+
+	def invalid_values(self, datafiles_names, deffiles_names, summary_invalid_file, field_separator, resultsfilelocation, today_now):
+
+		try:
+			for i in range(0, len(datafiles_names)):
+
+				client_file = datafiles_names[i]
+				json_def = deffiles_names[i]
+				sep_value = scenario.seperator_value(json_def)
+				client_file_name = client_file.rsplit("/", 1)[1]
+
+				json_def_name = json_def.split('/')[1]
+				client_file_name_split = client_file_name[-len(client_file_name):-4]
+
+				client_file_data = pd.read_csv(client_file, sep=sep_value)
+				json_def_data = json.load(open(json_def), object_pairs_hook=OrderedDict)
+				json_def_data_no_orderdict = pd.read_json(json_def)
+				summary_invalid_data = pd.read_csv(summary_invalid_file, sep=field_separator)
 
 				range_fail_list, values_fail_list = [], []
 
@@ -335,63 +538,34 @@ class scenario(object):
 								if i == j:
 									values_fail_list.append(i)
 
-
 					if len(range_fail_list) == 0 and len(values_fail_list) == 0:
-						line11 = {"Test name": "Invalid-values", "Result": "Passed"}
+						line11 = {"Test name": "Invalid-values", "Result": "Passed", "File-name": client_file_name_split}
 					elif len(range_fail_list) > 0:
-						line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(range_fail_list)+" are not in the defined range"}
+						line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(range_fail_list)+" are not in the defined range", "File-name": client_file_name_split}
 					else:
-						line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(values_fail_list)+" exist in the partner file"}
+						line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The values "+str(values_fail_list)+" exist in the partner file", "File-name": client_file_name_split}
 				else:
-					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The FileName not present in data file"}
-
-				# copying the file to passed or fail folder
-
-				if line1["Result"] == "Passed" and line2["Result"] == "Passed" and line3["Result"] == "Passed" and line4["Result"] == "Passed" and line5["Result"] == "Passed" and line6["Result"] == "Passed" and line7["Result"] == "Passed" and line8["Result"] == "Passed" and line9["Result"] == "Passed" and line10["Result"] == "Passed" and line11["Result"] == "Passed" or len(client_file_data) == 0:
-
-
-					with open(text_file_pass + client_file_name, 'w') as f1:
-						for line in open(client_file):
-							f1.write(line)
-
-					# pass control file
-
-					pass_control_file_data.append(client_file_name + "|" + str(len(client_file_data)))
-
-				else:
-					with open(text_file_fail + client_file_name, 'w') as f1:
-						for line in open(client_file):
-							f1.write(line)
-
-					# failed control file
-
-					fail_control_file_data.append(client_file_name)
-
-				# writing the output to the result file
-
-				final_lines_to_file = {"Test-1": line1, "Test-2": line2, "Test-3": line3, "Test-4": line4, "Test-5": line5, "Test-6": line6, "Test-7": line7, "Test-8": line8, "Test-9": line9, "Test-10": line10, "Test-11": line11}
-
-				# creating a json output file in result folder
-
-				with open(text_file_result, "w") as output:
-					json.dump(final_lines_to_file, output, indent=4)
-				output.close()
-
-			if len(pass_control_file_data) != 0:
-				pass_control_file='PassControl_'+date+"_"+timestamp+'.txt'
-				with open(pass_fail_control_file+pass_control_file, 'w') as out:
-					out.write('Filename|Rowcount')
-					for line in pass_control_file_data:
-						out.write('\n'+line)
-
-			if len(fail_control_file_data) != 0:
-				fail_file='FailedFile_'+date+"_"+timestamp+'.txt'
-				with open(pass_fail_control_file+fail_file,'w') as out2:
-					out2.write('Filename')
-					for line in fail_control_file_data:
-						out2.write('\n'+line)
-
-			return final_lines_to_file, today_now
+					line11 = {"Test name": "Invalid-values", "Result": "Failed", "Output": "The FileName not present in data file", "File-name": client_file_name_split}
 
 		except Exception as err:
-			print("Encountered error: "+str(err))
+			print("Encountered error in creating duplicate-values: "+str(err))
+
+		return line11
+
+
+	def result(self, line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, resultsfilelocation, today_now):
+
+		try:
+			text_file_pass = resultsfilelocation + "/" + "Pass/"
+			text_file_fail = resultsfilelocation + "/" + "Failed/"
+			text_file_result = resultsfilelocation + "/" + "Result/" + client_file_name_split + "_" + today_now + ".json"
+			pass_fail_control_file = resultsfilelocation + "/" + "Summary_Result/"
+
+			# creating a json output file in result folder
+
+			# with open(text_file_result, "a") as output:
+			# 	json.dump(final_lines_to_file, output, indent=2)
+			# output.close()
+
+		except Exception as err:
+			print("Encountered error in creating result-files: "+str(err))
